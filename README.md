@@ -5,7 +5,7 @@
 [![CI](https://github.com/youseiushida/kusyllabus/actions/workflows/ci.yml/badge.svg)](https://github.com/youseiushida/kusyllabus/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/youseiushida/kusyllabus/blob/main/LICENSE)
 
-京都大学の[オープンシラバス](https://www.k.kyoto-u.ac.jp/external/open_syllabus/)をログインせずに叩く Python ライブラリ + agent-native CLI。
+京都大学の[オープンシラバス](https://www.k.kyoto-u.ac.jp/external/open_syllabus/top)をログインせずに叩く Python ライブラリ + agent-native CLI。
 検索・全件ツリー・個別シラバス (全学共通 / 各学部)・学科分類マスタまでを型付きで扱える。
 
 > **責務の境界**: 履修登録・成績照会など SSO ログインが必要な KULASIS 本体は対象外です。
