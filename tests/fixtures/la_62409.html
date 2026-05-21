@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-31j" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <link rel="stylesheet" type="text/css" href="/css/behavior.css">
+    <link rel="stylesheet" type="text/css" href="/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/css/la_style.css">
+    <script type="text/javascript" src="/js/prototype.js"> </script>
+    <script type="text/javascript" src="/js/jquery-2.1.4.js"> </script>
+    <script>
+     jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="/js/jquery_auto.js"> </script>
+
+    <title>京都大学教務情報システム</title>
+  <link rel="stylesheet" href="/css/webfont.css" />
+
+<style>
+  .css-submit-button {
+    display: inline-block;
+  }
+  input::-webkit-contacts-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+  }
+</style>
+
+<script type="text/javascript">
+  jQuery(function() {
+    jQuery(".css-submit-button").click(function(e) {
+      jQuery(e.target).parents("form").submit();
+    });
+  });
+</script>
+</head>
+  <body onload="">
+  <div id="frame">
+    <div id="header">
+  <div class="header_left">
+    <img src="/img/zk_logo_l.gif" alt="TOPへ"  id="id_img_10_0" >
+  </div>
+
+  <div class="header_right">
+    <div class="logo"><img src="/img/zk_logo_r.gif" alt="" id="id_img_10_1" ></div>
+
+    <div class="header_menu">
+      <ul class="header_menu_left">      
+      </ul>
+
+      <ul class="header_menu_right three_storied">
+        <li style="height: 24px">&nbsp;</li>
+        <li style="height: 24px"><a href="/external/open_syllabus/top" id="id_a_10_6" ><img src="/img/zk_header_home_o.gif" alt="KULASIS TOP" /></a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<div id="wrapper">
+      <div class="contents" style="width: 968px">
+        <div class="right" style="margin-top: 3px;">
+          <span class="link"><a href="/external/open_syllabus/la_syllabus?lectureNo=62409&display_lang=en">English</a></span> |
+          <span class="link"><a href="/external/open_syllabus/la_syllabus?lectureNo=62409&display_lang=jp">日本語</a></span>
+        </div>
+
+        <!-- contents -->
+
+        <!-- title -->
+      <div class="title">
+        <div style="font-family: 'KulasisWebFont'; font-weight: bold; color: #020C4A; font-size: 24px;">
+          <img src="/img/mark_01.gif" alt="" id="id_img_1239_0">
+          シラバス検索
+        </div>
+      </div>
+      
+      <center>
+        <br /><br />
+
+		<style>
+  td.lesson_plan_sell{
+  padding: 5px;
+  }
+  div.lesson_plan_subheading {
+  margin-bottom: 3px;
+  }
+  .youtube-row {
+    padding: 5px;
+    background: url("data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAEAgMAAADUn3btAAAACVBMVEV9uNJxsM1lqMhSI4c%2FAAAADklEQVQIHWOcyejCCMQAB64Bv0s%2BhaAAAAAASUVORK5CYII%3D");
+    color: #eee;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+  }
+  .youtube-row-arrow {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+  .youtube-row:hover {
+    cursor: pointer;
+  }
+  .youtube-movie {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  a.reference-url {
+    word-break: break-all;
+  }
+</style>
+
+<script type="text/javascript">
+  jQuery(function() {
+    if (!window.syllabusMovieInit) {
+      jQuery(".youtube-row").click(function() {
+        var $this = jQuery(this);
+        var $accordion = $this.next(".youtube-movie");
+        if ($accordion.css("display") == "none") {
+          $this.css("border-bottom", "2px solid #9DA0B4");
+          $this.find(".youtube-row-arrow").attr("src", "/img/arrow2.png");
+          var $iframe = jQuery("<iframe></iframe>");
+          $iframe.addClass("youtube-movie-iframe");
+          $iframe.attr("width", 500);
+          $iframe.attr("height", 375);
+          $iframe.attr("src", "https://www.youtube-nocookie.com/embed/" + $accordion.attr("data-movie-id") + "?enablejsapi=1&rel=0");
+          $iframe.attr("frameborder", 0);
+          $iframe.attr("allowFullscreen", true);
+          $accordion.append($iframe);
+          $accordion.slideDown(300);
+        } else {
+          $this.css("border-bottom", "");
+          $this.find(".youtube-row-arrow").attr("src", "/img/arrow1.png");
+          $accordion.find(".youtube-movie-iframe").remove();
+          $accordion.slideUp(300);
+        }
+      });
+      if (/^#movie_([0-9]+)$/.test(location.hash)) {
+        var lectureNo = RegExp.$1;
+        jQuery(".youtube-row-" + lectureNo).click();
+      }
+      window.syllabusMovieInit = true;
+    }
+  });
+</script>
+
+<img src="/img/0.gif" width="1" height="7" alt="" id="id_img_1373_0" ><br />
+
+
+<!-- syllabus -->
+
+<table border="1" class="lesson_plan_sell" style="border-color:#9DA0B4;" width="520" cellspacing="0" cellpadding="2">
+  <tr><td bgcolor="#9DA0B4" class="th_top_normal syllabus_sell" align="center" colspan="4"><img src="/img/0.gif" width="1" height="1" alt="" id="id_img_1373_1" ></td></tr>
+  <tr>
+    <td colspan="2" class="lesson_plan_sell upperGray">
+      <table border="0" cellspacing="0" cellpadding="2" width="595">
+      	<tr valign="top">
+					<td nowrap width="123"><span class="lesson_plan_subheading">(科目ナンバリング)</span></td>
+      		<td nowrap>
+            U-LAS04 10010 LJ45<br/>
+            </td>
+      	</tr>
+      </table>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td class="lesson_plan_sell"  width="280">
+      <table border="0" cellspacing="0" cellpadding="2">
+
+        <tr><td><img src="/img/0.gif" width="1" height="3" alt="" id="id_img_1373_2" ></td></tr>
+
+        <tr style="vertical-align: top"><td nowrap width="55"><span class="lesson_plan_subheading">(科目名)</span></td>
+          <td width="225"><span class="x100">
+              <b>
+                社会学Ｉ <br /></b>
+            </span>
+            </td></tr>
+        <tr valign="top"><td nowrap width="55"><span class="lesson_plan_subheading">(英 訳)</span></td><td>Sociology I </td></tr>
+      </table>
+    </td>
+
+    <td class="lesson_plan_sell">
+      <table border="0" width="98%" cellspacing="0" cellpadding="0">
+
+        <tr><td nowrap><span class="lesson_plan_subheading">(所属部局)</span></td><td nowrap><span class="lesson_plan_subheading">(職 名)</span></td><td nowrap><span class="lesson_plan_subheading">(氏 名)</span></td></tr>
+        <tr>
+            <td>地球環境学舎</td>
+            <td>准教授</td>
+            <td>朴　沙羅</td>
+					</tr>
+        </table>
+    </td>
+  </tr>
+
+  <tr>
+      <td colspan="2" class="lesson_plan_sell lowerGray">
+          <table border="0" cellspacing="0" cellpadding="2"> <tr valign="top">
+            <td width="50" nowrap class="top"><span class="lesson_plan_subheading">(使用言語)</span></td>
+            	<td width="90"><span class="">
+                日本語</span></td>
+            </tr>
+        </table>
+      </td>
+    </tr>
+  <tr>
+    <td colspan="2" class="lesson_plan_sell lowerGray">
+
+      <table border="0" cellspacing="0" cellpadding="2">
+    
+        <tr valign="top">
+          <td width="63" nowrap class="top"><span class="lesson_plan_subheading">(単位数)</span></td>
+          <td width="80"><span class="">2単位</span></td>
+          <td width="63" nowrap class="top" width="64"><span class="lesson_plan_subheading">(授業形態)</span></td>
+          <td width="140"><span class="">
+              講義</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="lesson_plan_sell upperGray lowerGray">
+      <table border="0" cellspacing="0" cellpadding="2">
+        <tr valign="top">
+          <td width="48" nowrap class="top"><span class="lesson_plan_subheading">(開講年度・開講期)</span></td>
+          <td width="80"><span class="">2026・前期</span></td>
+          <td width="64" nowrap class="top"><span class="lesson_plan_subheading">(配当学年)</span></td>
+          <td width="80"><span class="">全回生</span></td>
+          <td width="64" nowrap class="top"><span class="lesson_plan_subheading">(対象学生)</span></td>
+          <td width="90"><span class="">全学向</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="lesson_plan_sell upperGray lowerGray">
+      <table border="0" cellspacing="0" cellpadding="2">
+        <tr valign="top">
+          <td nowrap width="50"><span class="lesson_plan_subheading">(曜時限)</span></td>
+          <td width="170"><span class="">
+              水1<br /></span></td>
+          </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr><td colspan="2" class="lesson_plan_sell lowerGray">
+      <div class="h120">
+        <div class="lesson_plan_subheading">(授業の概要・目的)</div>
+        <div>
+          この授業では社会学の入門的な講義を行います。高校には「社会学」という科目はなかったでしょうから、「社会学」とは一体何なのか、想像のつかない方もいらっしゃることでしょう（私もそうでした）。「社会」って何だろう、何でも「社会」って言えそうじゃないか、と思ったあなたは間違っていません。社会学は多くの物事を対象にし、それらはどれも、ある意味において「社会」と呼ぶのが適切です。しかし、「なんでもあり」になりそうな社会学において、何を取り上げても「社会」の学になる（＝社会学にする）ためには、何に目をつけ、どのように分析すればいいか、他の学問より社会学の方が得意なものは何かを、この講義で学んでほしいと思います。講義では、自己から社会運動まで、社会学が研究対象とするものの一部を取り上げます。そして、社会学者たちがこれらの現象について、自らの置かれた時代と環境の中で、何を論じてきたのかを解説します。<br />社会学は近代の学問です。この授業を通して、私たちが今も生きている近代とはどのような時代なのか、さまざまな規模の集団や知識・規範とその変化を通じて、一緒に考えていきましょう。</div>
+      </div>
+  </td></tr>
+  
+  <tr><td colspan="2" class="lesson_plan_sell lowerGray">
+      <div class="h120">
+        <div class="lesson_plan_subheading">(到達目標)</div>
+        <div>
+          以下の点について、社会学を知らず特に関心も持たない大人（例：親戚、就職活動で「大学時代に学んだこと」について質問する人）に説明できる<br />・社会学の対象とする「社会」とは何を指すか<br />・社会学的思考とは具体的に何に着目してどのように思考することか<br />・時代・地域に即した社会問題に対して、これまで社会学者たちは何を明らかにしてきたか<br /></div>
+      </div>
+  </td></tr>
+
+  <tr><td colspan="2" class="lesson_plan_sell upperGray">
+      <div class="h120">
+        <div class="lesson_plan_subheading">(授業計画と内容)</div>
+        <div>
+          基本的に、以下の計画に従って講義を進める。ただし、受講者の状況などに応じて、順番や内容を変更する可能性がある。基本的には、前半は外国人をめぐる話題について研究者の知見を紹介し、後半は外国人をめぐる話題それ自体を分析の対象とする。<br /><br />第1回　オリエンテーション<br />第2回　社会って何？<br />第3回　私は誰？<br />第4回　家族ってどんな集団？<br />第5回　働くって何をすること？<br />第6回　性って何？ <br />第7回　福祉や教育はどうやって決まる？<br />第8回　文化って何？<br />第9回　「エスニック」って何？<br />第10回　格差は無くならない？<br />第11回　差別って何をすること？<br />第12回　デモって怖い？<br />第13回　授業の振り返り<br />第14回　最終レポート<br />第15回　フィードバック（詳細は授業中に説明） </div>
+      </div>
+  </td></tr>
+  
+  <tr><td colspan="2" class="lesson_plan_sell lowerGray">
+      <div class=" h120">
+        <div class="lesson_plan_subheading">(履修要件)</div>
+        <div>
+          
+              特になし
+            </div>
+      </div>
+  </td></tr>
+
+  <tr><td colspan="2" class="lesson_plan_sell upperGray">
+      <div class=" h120">
+        <div class="lesson_plan_subheading">(成績評価の方法・観点)</div>
+        <div>
+          初回レポート（5％）：シラバスを読んで、興味のある話題とない話題を1つずつ選んでください。またこの授業で学びたいことを3つ以上の文で述べてください。<br />授業課題（5％×11回）：毎回、その日の授業の内容で「理解できたこと」と「重要だと思ったこと、およびその理由」「追加で説明してほしいこと」の3点について書いてください。<br />最終レポート（40%）：この授業の話題・特徴・内容・わかったこと・もっと知りたいこと・授業を受ける際の工夫について、授業の内容を反映した紹介文を書いてください。授業時間内に手書きで提出してもらいます。</div>
+      </div>
+
+  </td></tr>
+
+
+
+  <tr>
+    <td colspan="2" class="lesson_plan_sell lowerGray" >
+      <div><span class="lesson_plan_subheading">(教科書)</span></div>
+      <div><!-- <i> -->
+        <span class=" h120">使用しない</span><br />
+        <span class=" h120"></span>
+      <!-- </i> --></div>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="lesson_plan_sell upperGray">
+      <div><span class="lesson_plan_subheading">(参考書等)&nbsp;</span></div>
+      <div>
+        <span class=" h120">授業中に紹介する</span><br />
+        <span class=" h120"></span>
+      </div>
+    </td>
+  </tr>
+  <tr><td colspan="2" class="lesson_plan_sell">
+      <div class=" h120">
+        <div class="lesson_plan_subheading">(授業外学修（予習・復習）等)</div>
+        <div>
+          毎回、授業の最後に次の授業の話題を指示します。それに基づいて関連する情報も提供しますので、そちらを見るか読むかしてきてください。復習は授業の中で時間を取って行いますが、おそらく身近に関連するニュースや言説があふれていると思いますので、それらを見てご自身で分析してみてください。真面目に行った場合、<br />予習・復習にそれぞれ60分くらいかかるでしょう。&nbsp;
+        </div>
+      </div>
+  </td></tr>
+
+  <tr><td colspan="2" class="lesson_plan_sell">
+      <div class=" h120">
+        <div class="lesson_plan_subheading">(主要授業科目)</div>
+        <div>
+          &nbsp;
+        </div>
+      </div>
+  </td></tr>
+
+  <tr><td bgcolor="#9DA0B4" class="th_top_normal syllabus_sell" align="center" colspan="4">
+      <img src="/img/0.gif" width="1" height="1" alt="" id="id_img_1373_4" >
+  </td></tr>
+</table>
+
+<br />
+<!--/syllabus -->
+
+
+</center>
+
+
+        <br /><br />
+
+        <!--/+++++++++++++++++++++ contents +++++++++++++++++++++ -->
+
+
+
+<div style="text-align: center; margin-bottom: 3em;">
+        <a href="#" id="back_button"><img src="/img/button_back.gif" /></a> 
+      </div>
+
+      <script type="text/javascript">
+        jQuery(function() {
+          jQuery("#back_button").click(function(e) {
+            e.preventDefault();
+            if (window.history.length <= 1) {
+              window.location.href = "/external/open_syllabus/top";
+            } else {
+              window.history.back();
+            }
+          });
+        });
+      </script>
+
+<!-- /contents -->
+
+        <div class="copyright">
+            <img src="/img/copyright.gif" alt="">
+          </div>
+        </div>
+
+    </div>
+    <div id="footer" />
+
+    </div>
+    <div id="jsp_path">external/open_syllabus/la_syllabus.jsp</div>
+    <script type="text/javascript" src="/js/js.cookie.js"></script>
+<style>
+.loading_modal_background {
+  position: absolute;
+  background-color: #000;
+  opacity: 0.2;
+  display: none;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+}
+
+.loading_modal_body {
+  position: absolute;
+  padding: 2em;
+  background-color: #FFF;
+  border: 1px solid #000;
+  display: none;
+  z-index: 100000;
+}
+
+.loading_modal_body.now-loading {
+  animation: LOADING_MODAL_ANIMATION 5.1s;
+}
+
+.loading_modal_background.now-loading {
+  animation: LOADING_MODAL_BACKGROUND_ANIMATION 5.1s;
+}
+
+@keyframes LOADING_MODAL_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes LOADING_MODAL_BACKGROUND_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+</style>
+
+<div class="loading_modal_background"></div>
+<div class="loading_modal_body">
+<div class="loading_modal_body_inline" style="display: inline-block"></div>
+<script type="text/javascript">
+  jQuery(function() {
+    var adjustModalPosition = function() {
+      var width = jQuery("body").width();
+      var height = jQuery("body").height();
+      var modal_width = jQuery(".loading_modal_body_inline").width();
+      var modal_height = jQuery(".loading_modal_body_inline").height();
+      var scroll = window.pageYOffset;
+      jQuery(".loading_modal_body").css("top", scroll + window.innerHeight / 2 - modal_height / 2)
+                           .css("left", width / 2 - modal_width / 2);
+    };
+    var openConfirmWindow = function() {
+      var height = document.documentElement.clientHeight < document.body.clientHeight ? document.body.clientHeight : document.documentElement.clientHeight;
+      var width = document.body.offsetWidth;
+      
+        jQuery(".loading_modal_body_inline").html(
+          '<center>' +
+          '  <div style="font-size: 120%; white-space: nowrap">しばらくお待ちください</div>' +
+          '  <br />' +
+          '  <div style="white-space: nowrap">現在アクセスが集中しており、順番に処理をしています。</div>' +
+          '  <div style="color: red">' +
+          '    <div style="text-decoration: underline">' +
+          '      <div style="white-space: nowrap">ブラウザで「戻る」や「更新」のボタンを押したりせず、</div>' +
+          '      <div style="white-space: nowrap">処理が完了するまでこのままお待ちください。</div>' +
+          '    </div>' +
+          '    <div style="white-space: nowrap">（履修登録期間中は処理に10分程度かかることがあります）</div>' +
+          '  </div>' +
+          '</center>'
+        );
+      
+      jQuery(".loading_modal_background").height(height).width(width).addClass("now-loading").show();
+      jQuery(".loading_modal_body").addClass("now-loading").show();
+      adjustModalPosition();
+    };
+
+    var absolutePath = function(path) {
+      var e = document.createElement('span');
+      e.innerHTML = '<a href="' + path + '" />';
+      return e.firstChild.href;
+    }
+
+    var regTimeslotPage = /\/student\/la\/timeslot\//;
+    jQuery("a").bind("click", function(e) {
+      if (!e.customClickTarget) e.customClickTarget = e.currentTarget;
+    });
+
+    jQuery("body").bind("click", function(e) {
+      if (e.customClickTarget && !e.defaultPrevented) {
+        var $a = jQuery(e.customClickTarget);
+        var path = absolutePath($a.attr("href"));
+        if (!$a.attr("target") && path.match(regTimeslotPage) && !$a.is(".no-loading-modal")) {
+          openConfirmWindow();
+        }
+      }
+    });
+    jQuery("body").bind("submit", function(e) {
+      if (!e.defaultPrevented) {
+        var $f = jQuery(e.target);
+        var path = absolutePath($f.attr("action"));
+        if (path.match(regTimeslotPage) && !$f.is(".no-loading-modal")) {
+          openConfirmWindow();
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>

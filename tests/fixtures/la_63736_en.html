@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-31j" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <link rel="stylesheet" type="text/css" href="/css/behavior.css">
+    <link rel="stylesheet" type="text/css" href="/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/css/la_style.css">
+    <script type="text/javascript" src="/js/prototype.js"> </script>
+    <script type="text/javascript" src="/js/jquery-2.1.4.js"> </script>
+    <script>
+     jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="/js/jquery_auto.js"> </script>
+
+    <title>京都大学教務情報システム</title>
+  <link rel="stylesheet" href="/css/webfont.css" />
+
+<style>
+  .css-submit-button {
+    display: inline-block;
+  }
+  input::-webkit-contacts-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+  }
+</style>
+
+<script type="text/javascript">
+  jQuery(function() {
+    jQuery(".css-submit-button").click(function(e) {
+      jQuery(e.target).parents("form").submit();
+    });
+  });
+</script>
+</head>
+  <body onload="">
+  <div id="frame">
+    <div id="header">
+  <div class="header_left">
+    <img src="/img/zk_logo_l.gif" alt="TOPへ"  id="id_img_10_0" >
+  </div>
+
+  <div class="header_right">
+    <div class="logo"><img src="/img/zk_logo_r.gif" alt="" id="id_img_10_1" ></div>
+
+    <div class="header_menu">
+      <ul class="header_menu_left">      
+      </ul>
+
+      <ul class="header_menu_right three_storied">
+        <li style="height: 24px">&nbsp;</li>
+        <li style="height: 24px"><a href="/external/open_syllabus/top" id="id_a_10_6" ><img src="/img/zk_header_home_o.gif" alt="KULASIS TOP" /></a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<div id="wrapper">
+      <div class="contents" style="width: 968px">
+        <div class="right" style="margin-top: 3px;">
+          <span class="link"><a href="/external/open_syllabus/la_syllabus?lectureNo=63736&display_lang=en">English</a></span> |
+          <span class="link"><a href="/external/open_syllabus/la_syllabus?lectureNo=63736&display_lang=jp">日本語</a></span>
+        </div>
+
+        <!-- contents -->
+
+        <!-- title -->
+      <div class="title">
+        <div style="font-family: 'KulasisWebFont'; font-weight: bold; color: #020C4A; font-size: 24px;">
+          <img src="/img/mark_01.gif" alt="" id="id_img_1239_0">
+          Find Syllabus
+        </div>
+      </div>
+      
+      <center>
+        <br /><br />
+
+		<style>
+  td.lesson_plan_sell{
+  padding: 5px;
+  }
+  div.lesson_plan_subheading {
+  margin-bottom: 3px;
+  }
+  .youtube-row {
+    padding: 5px;
+    background: url("data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAEAgMAAADUn3btAAAACVBMVEV9uNJxsM1lqMhSI4c%2FAAAADklEQVQIHWOcyejCCMQAB64Bv0s%2BhaAAAAAASUVORK5CYII%3D");
+    color: #eee;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+  }
+  .youtube-row-arrow {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+  .youtube-row:hover {
+    cursor: pointer;
+  }
+  .youtube-movie {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  a.reference-url {
+    word-break: break-all;
+  }
+</style>
+
+<script type="text/javascript">
+  jQuery(function() {
+    if (!window.syllabusMovieInit) {
+      jQuery(".youtube-row").click(function() {
+        var $this = jQuery(this);
+        var $accordion = $this.next(".youtube-movie");
+        if ($accordion.css("display") == "none") {
+          $this.css("border-bottom", "2px solid #9DA0B4");
+          $this.find(".youtube-row-arrow").attr("src", "/img/arrow2.png");
+          var $iframe = jQuery("<iframe></iframe>");
+          $iframe.addClass("youtube-movie-iframe");
+          $iframe.attr("width", 500);
+          $iframe.attr("height", 375);
+          $iframe.attr("src", "https://www.youtube-nocookie.com/embed/" + $accordion.attr("data-movie-id") + "?enablejsapi=1&rel=0");
+          $iframe.attr("frameborder", 0);
+          $iframe.attr("allowFullscreen", true);
+          $accordion.append($iframe);
+          $accordion.slideDown(300);
+        } else {
+          $this.css("border-bottom", "");
+          $this.find(".youtube-row-arrow").attr("src", "/img/arrow1.png");
+          $accordion.find(".youtube-movie-iframe").remove();
+          $accordion.slideUp(300);
+        }
+      });
+      if (/^#movie_([0-9]+)$/.test(location.hash)) {
+        var lectureNo = RegExp.$1;
+        jQuery(".youtube-row-" + lectureNo).click();
+      }
+      window.syllabusMovieInit = true;
+    }
+  });
+</script>
+
+<img src="/img/0_en.gif" width="1" height="7" alt="" id="id_img_1373_0" ><br />
+
+
+<!-- syllabus -->
+
+<table border="1" class="lesson_plan_sell" style="border-color:#9DA0B4;" width="520" cellspacing="0" cellpadding="2">
+  <tr><td bgcolor="#9DA0B4" class="th_top_normal syllabus_sell" align="center" colspan="4"><img src="/img/0_en.gif" width="1" height="1" alt="" id="id_img_1373_1" ></td></tr>
+  <tr>
+    <td colspan="2" class="lesson_plan_sell upperGray">
+      <table border="0" cellspacing="0" cellpadding="2" width="595">
+      	<tr valign="top">
+					<td nowrap width="123"><span class="lesson_plan_subheading">(Course number)</span></td>
+      		<td nowrap>
+            U-LAS13 10004 LE60<br/>
+            </td>
+      	</tr>
+      </table>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td class="lesson_plan_sell"  width="280">
+      <table border="0" cellspacing="0" cellpadding="2">
+
+        <tr><td><img src="/img/0_en.gif" width="1" height="3" alt="" id="id_img_1373_2" ></td></tr>
+
+        <tr style="vertical-align: top"><td nowrap width="55" rowspan="2"><span class="lesson_plan_subheading">(Course title<br />(and course title<br />in English))</span></td>
+          <td width="225"><span class="x100">
+              <b>
+                Basic Physical Chemistry (thermodynamics)-E2 <br /></b>
+            </span>
+            </td></tr>
+        <tr valign="top"><td>Basic Physical Chemistry (thermodynamics)-E2 </td></tr>
+      </table>
+    </td>
+
+    <td class="lesson_plan_sell">
+      <table border="0" width="98%" cellspacing="0" cellpadding="0">
+
+        <tr><td nowrap colspan="3"><span class="lesson_plan_subheading">(Instructor's name, job title, and department of affiliation)</span></td></tr>
+        <tr>
+            <td>Graduate School of Engineering</td>
+            <td>Senior Lecturer</td>
+            <td>Nguyen Thanh Phuc</td>
+					</tr>
+        </table>
+    </td>
+  </tr>
+
+  <tr>
+      <td colspan="2" class="lesson_plan_sell lowerGray">
+
+        <table border="0" cellspacing="0" cellpadding="2">
+          <tr valign="top">
+            <td width="50" nowrap class="top"><span class="lesson_plan_subheading">(Language of<br />instruction)</span></td>
+              <td width="90"><span class="">
+                English</span></td>
+            </tr>
+        </table>
+      </td>
+    </tr>
+  <tr>
+    <td colspan="2" class="lesson_plan_sell lowerGray">
+
+      <table border="0" cellspacing="0" cellpadding="2">
+
+        <tr valign="top">
+          <td width="63" nowrap class="top"><span class="lesson_plan_subheading">(Number of credits)</span></td>
+          <td width="80"><span class="">2 credits</span></td>
+          <td width="63" nowrap class="top" width="64"><span class="lesson_plan_subheading">(Class style)</span></td>
+          <td width="140"><span class="">
+              Lecture</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="lesson_plan_sell upperGray lowerGray">
+      <table border="0" cellspacing="0" cellpadding="2">
+        <tr valign="top">
+          <td width="48" nowrap class="top"><span class="lesson_plan_subheading">(Year/semesters)</span></td>
+          <td width="80"><span class="">2026・Second semester</span></td>
+          <td width="64" nowrap class="top"><span class="lesson_plan_subheading">(Target year)</span></td>
+          <td width="80"><span class="">Mainly 1st & 2nd year students</span></td>
+          <td width="64" nowrap class="top"><span class="lesson_plan_subheading">(Eligible students)</span></td>
+          <td width="90"><span class="">For science students</span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="lesson_plan_sell upperGray lowerGray">
+      <table border="0" cellspacing="0" cellpadding="2">
+        <tr valign="top">
+          <td nowrap width="50"><span class="lesson_plan_subheading">(Days and<br />periods)</span></td>
+          <td width="170"><span class="">
+              Wed.1<br /></span></td>
+          </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr><td colspan="2" class="lesson_plan_sell lowerGray">
+      <div class="h120">
+        <div class="lesson_plan_subheading">(Overview and purpose of the course)</div>
+        <div>
+          Physical chemistry is the discipline that studies the basic concepts and principles of the formation of molecules and substances, the nature and characteristics of chemical bonds and molecular structures, chemical equilibrium, and reaction rates.<br />This course is designed as introductory physical chemistry, specifically aims to learn and understand the principles and applications of thermodynamics. The knowledge learned from this course will be the foundation for learning all areas of chemistry, including advanced-level physical chemistry, organic chemistry, and inorganic chemistry.</div>
+      </div>
+  </td></tr>
+  
+  <tr><td colspan="2" class="lesson_plan_sell lowerGray">
+      <div class="h120">
+        <div class="lesson_plan_subheading">(Course objectives)</div>
+        <div>
+          ・ To understand important thermodynamic quantities including the entropy and the free energies<br />・ To understand the laws of thermodynamics<br />・ To understand the phases of substances and the associated phase transitions<br />・ To be able to apply thermodynamics to physical and chemical equilibria</div>
+      </div>
+  </td></tr>
+
+  <tr><td colspan="2" class="lesson_plan_sell upperGray">
+      <div class="h120">
+        <div class="lesson_plan_subheading">(Course schedule and contents)</div>
+        <div>
+          The following topics will be covered. The order of topics and subtopics and the number of weeks allocated to each topic is subject to change, depending on the students' understanding.<br /><br />1. Introduction to thermodynamics [1 week]<br />2. Basic concepts of thermodynamics [1~2 weeks]<br />The system, the surrounding, thermodynamic states, state functions, work, heat, heat capacities, enthalpy<br />3. Gas, ideal and real gases [1~2 weeks]<br />4. Spontaneous processes and thermodynamic equilibrium [2~3 weeks]<br />The second law of thermodynamics, entropy, the Gibbs free energy<br />5. Phase and phase transitions [1~2 weeks]<br />6. Thermodynamics of chemical equilibrium [2~3 weeks]<br />7. Examples of chemical equilibrium [2~3 weeks]<br />8. Chemical Kinetics [1 week]<br />9. Final paper (report)<br />10. Feedback [1 week]<br />Total：14 classes, 1 Feedback session<br /></div>
+      </div>
+  </td></tr>
+
+  <tr><td colspan="2" class="lesson_plan_sell lowerGray">
+      <div class=" h120">
+        <div class="lesson_plan_subheading">(Course requirements)</div>
+        <div>
+          
+              None
+            </div>
+      </div>
+  </td></tr>
+
+  <tr><td colspan="2" class="lesson_plan_sell upperGray">
+      <div class=" h120">
+        <div class="lesson_plan_subheading">(Evaluation methods and policy)</div>
+        <div>
+          The evaluation will be based on a final paper (report) (86 points) and class attendance and active participation (14 points).</div>
+      </div>
+
+  </td></tr>
+
+
+
+  <tr>
+    <td colspan="2" class="lesson_plan_sell lowerGray" >
+      <div><span class="lesson_plan_subheading">(Textbooks)</span></div>
+      <div>
+        <span class=" h120">Not used</span><br />
+        <span class=" h120"></span>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="lesson_plan_sell upperGray">
+      <div><span class="lesson_plan_subheading">(References, etc.)&nbsp;</span></div>
+      <div>
+        D. W. Oxtoby, H. P. Gillis, L. J. Butler『Principles of Modern Chemistry, 8th Edition』(Cengage Learning) ISBN:1305079116 <br />
+          P. Atkins, J. D. Paula, J. Keeler『Atkins' Physical Chemistry, 11th Edition』(Oxford University Press) ISBN:0198769865 <br />
+          <span class=" h120"></span>
+      </div>
+    </td>
+  </tr>
+  <tr><td colspan="2" class="lesson_plan_sell">
+      <div class=" h120">
+        <div class="lesson_plan_subheading">(Study outside of class (preparation and review))</div>
+        <div>
+          Students are responsible for the preparation and review of each class.&nbsp;
+        </div>
+      </div>
+
+  <tr><td colspan="2" class="lesson_plan_sell">
+      <div class=" h120">
+        <div class="lesson_plan_subheading">(Essential courses)</div>
+        <div>
+          Faculty of Science&nbsp;
+        </div>
+      </div>
+  </td></tr>
+
+  <tr><td bgcolor="#9DA0B4" class="th_top_normal syllabus_sell" align="center" colspan="4">
+      <img src="/img/0_en.gif" width="1" height="1" alt="" id="id_img_1373_4" >
+  </td></tr>
+</table>
+
+<br />
+<!--/syllabus -->
+</center>
+
+
+        <br /><br />
+
+        <!--/+++++++++++++++++++++ contents +++++++++++++++++++++ -->
+
+
+
+<div style="text-align: center; margin-bottom: 3em;">
+        <a href="#" id="back_button"><img src="/img/button_back_en.gif" /></a> 
+      </div>
+
+      <script type="text/javascript">
+        jQuery(function() {
+          jQuery("#back_button").click(function(e) {
+            e.preventDefault();
+            if (window.history.length <= 1) {
+              window.location.href = "/external/open_syllabus/top";
+            } else {
+              window.history.back();
+            }
+          });
+        });
+      </script>
+
+<!-- /contents -->
+
+        <div class="copyright">
+            <img src="/img/copyright.gif" alt="">
+          </div>
+        </div>
+
+    </div>
+    <div id="footer" />
+
+    </div>
+    <div id="jsp_path">external/open_syllabus/la_syllabus_en.jsp</div>
+    <script type="text/javascript" src="/js/js.cookie.js"></script>
+<style>
+.loading_modal_background {
+  position: absolute;
+  background-color: #000;
+  opacity: 0.2;
+  display: none;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+}
+
+.loading_modal_body {
+  position: absolute;
+  padding: 2em;
+  background-color: #FFF;
+  border: 1px solid #000;
+  display: none;
+  z-index: 100000;
+}
+
+.loading_modal_body.now-loading {
+  animation: LOADING_MODAL_ANIMATION 5.1s;
+}
+
+.loading_modal_background.now-loading {
+  animation: LOADING_MODAL_BACKGROUND_ANIMATION 5.1s;
+}
+
+@keyframes LOADING_MODAL_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes LOADING_MODAL_BACKGROUND_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+</style>
+
+<div class="loading_modal_background"></div>
+<div class="loading_modal_body">
+<div class="loading_modal_body_inline" style="display: inline-block"></div>
+<script type="text/javascript">
+  jQuery(function() {
+    var adjustModalPosition = function() {
+      var width = jQuery("body").width();
+      var height = jQuery("body").height();
+      var modal_width = jQuery(".loading_modal_body_inline").width();
+      var modal_height = jQuery(".loading_modal_body_inline").height();
+      var scroll = window.pageYOffset;
+      jQuery(".loading_modal_body").css("top", scroll + window.innerHeight / 2 - modal_height / 2)
+                           .css("left", width / 2 - modal_width / 2);
+    };
+    var openConfirmWindow = function() {
+      var height = document.documentElement.clientHeight < document.body.clientHeight ? document.body.clientHeight : document.documentElement.clientHeight;
+      var width = document.body.offsetWidth;
+      
+        jQuery(".loading_modal_body_inline").html(
+          '<center>' +
+          '  <div style="font-size: 120%; white-space: nowrap">しばらくお待ちください</div>' +
+          '  <br />' +
+          '  <div style="white-space: nowrap">現在アクセスが集中しており、順番に処理をしています。</div>' +
+          '  <div style="color: red">' +
+          '    <div style="text-decoration: underline">' +
+          '      <div style="white-space: nowrap">ブラウザで「戻る」や「更新」のボタンを押したりせず、</div>' +
+          '      <div style="white-space: nowrap">処理が完了するまでこのままお待ちください。</div>' +
+          '    </div>' +
+          '    <div style="white-space: nowrap">（履修登録期間中は処理に10分程度かかることがあります）</div>' +
+          '  </div>' +
+          '</center>'
+        );
+      
+      jQuery(".loading_modal_background").height(height).width(width).addClass("now-loading").show();
+      jQuery(".loading_modal_body").addClass("now-loading").show();
+      adjustModalPosition();
+    };
+
+    var absolutePath = function(path) {
+      var e = document.createElement('span');
+      e.innerHTML = '<a href="' + path + '" />';
+      return e.firstChild.href;
+    }
+
+    var regTimeslotPage = /\/student\/la\/timeslot\//;
+    jQuery("a").bind("click", function(e) {
+      if (!e.customClickTarget) e.customClickTarget = e.currentTarget;
+    });
+
+    jQuery("body").bind("click", function(e) {
+      if (e.customClickTarget && !e.defaultPrevented) {
+        var $a = jQuery(e.customClickTarget);
+        var path = absolutePath($a.attr("href"));
+        if (!$a.attr("target") && path.match(regTimeslotPage) && !$a.is(".no-loading-modal")) {
+          openConfirmWindow();
+        }
+      }
+    });
+    jQuery("body").bind("submit", function(e) {
+      if (!e.defaultPrevented) {
+        var $f = jQuery(e.target);
+        var path = absolutePath($f.attr("action"));
+        if (path.match(regTimeslotPage) && !$f.is(".no-loading-modal")) {
+          openConfirmWindow();
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>

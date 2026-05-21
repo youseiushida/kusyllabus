@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0054)https://www.k.kyoto-u.ac.jp/external/open_syllabus/top -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+    
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <link rel="stylesheet" type="text/css" href="./京都大学教務情報システム_files/behavior.css">
+    <link rel="stylesheet" type="text/css" href="./京都大学教務情報システム_files/layout.css">
+    <link rel="stylesheet" type="text/css" href="./京都大学教務情報システム_files/la_style.css">
+    <script type="text/javascript" src="./京都大学教務情報システム_files/prototype.js.ダウンロード"> </script>
+    <script type="text/javascript" src="./京都大学教務情報システム_files/jquery-2.1.4.js.ダウンロード"> </script>
+    <script>
+     jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="./京都大学教務情報システム_files/jquery_auto.js.ダウンロード"> </script>
+
+    <title>京都大学教務情報システム</title>
+  <link rel="stylesheet" href="./京都大学教務情報システム_files/webfont.css">
+
+<style>
+  .css-submit-button {
+    display: inline-block;
+  }
+  input::-webkit-contacts-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+  }
+</style>
+
+<script type="text/javascript">
+  jQuery(function() {
+    jQuery(".css-submit-button").click(function(e) {
+      jQuery(e.target).parents("form").submit();
+    });
+  });
+</script>
+</head>
+  <body onload="">
+  <div id="frame">
+    <div id="header">
+  <div class="header_left">
+    <img src="./京都大学教務情報システム_files/zk_logo_l.gif" alt="TOPへ" id="id_img_10_0">
+  </div>
+
+  <div class="header_right">
+    <div class="logo"><img src="./京都大学教務情報システム_files/zk_logo_r.gif" alt="" id="id_img_10_1"></div>
+
+    <div class="header_menu">
+      <ul class="header_menu_left">      
+      </ul>
+
+      <ul class="header_menu_right three_storied">
+        <li style="height: 24px">&nbsp;</li>
+        <li style="height: 24px"><a href="https://www.k.kyoto-u.ac.jp/external/open_syllabus/top" id="id_a_10_6"><img src="./京都大学教務情報システム_files/zk_header_home_o.gif" alt="KULASIS TOP"></a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<div id="wrapper">
+      <div class="contents" style="width: 968px">
+        <div class="right" style="margin-top: 3px;">
+          <span class="link"><a href="https://www.k.kyoto-u.ac.jp/external/open_syllabus/top?display_lang=en">English</a></span> |
+          <span class="link"><a href="https://www.k.kyoto-u.ac.jp/external/open_syllabus/top?display_lang=jp">日本語</a></span>
+        </div>
+
+        <!-- contents -->
+
+        <div class="title">
+    <div style="font-family: &#39;KulasisWebFont&#39;; font-weight: bold; color: #020C4A; font-size: 24px;">
+      <img src="./京都大学教務情報システム_files/mark_01.gif" alt="" id="id_img_1239_0">
+      シラバス検索
+    </div>
+  </div>
+
+  <!-- +++++++++++++++++++++ contents +++++++++++++++++++++ -->
+
+  <br>
+  <center>
+    <script type="text/javascript">
+function clearCourseSearchForm() {
+    jQuery('#week_schedule_holder input').each(function(){
+    	this.checked = false;
+    });
+
+    jQuery("#select_departmentNo")[0].selectedIndex = 0;
+    jQuery("#select_openSyllabusTitle")[0].selectedIndex = 0;
+    jQuery("#select_courseNumberingJugyokeitaiNo")[0].selectedIndex = 0;
+    jQuery("#select_courseNumberingLanguageNo")[0].selectedIndex = 0;
+    jQuery("#select_semesterNo")[0].selectedIndex = 0;
+    jQuery("#select_courseNumberingLevelNo")[0].selectedIndex = 0;
+    jQuery("#select_courseNumberingBunkaNo")[0].selectedIndex = 0;
+    jQuery("#teacher_name")[0].value = '';
+    jQuery("#keyword")[0].value = '';
+}
+
+function checkAllDays() {
+	
+    var inputs = jQuery('#week_schedule_holder input').filter(function(){return jQuery(this).attr('name') != 'condition.syutyu'; });
+    
+    var all = true;
+    inputs.each(function(){
+    	if (!this.checked) {
+    		all = false;
+		}
+    });
+    
+    if (all) {
+    	inputs.each(function(){this.checked = false;});
+    } else {
+    	inputs.each(function(){this.checked = true;});
+	}
+}
+
+jQuery(function() {
+    jQuery("#select_departmentNo").bind("change", function() {
+        jQuery.get(
+            "open_syllabus_titles",
+            {departmentNo: jQuery("#select_departmentNo").val()},
+            function(data) {
+                jQuery("#select_openSyllabusTitle").html(data);
+                setTimeout(function() {
+                    jQuery("#select_openSyllabusTitle")[0].selectedIndex = 0;
+                }, 0);
+            }
+        );
+    });
+});
+</script>
+
+<form action="https://www.k.kyoto-u.ac.jp/external/open_syllabus/search" method="get" name="detail_search" id="id_form_1370_0">
+
+
+  <table class="form_table" style="width: 570">
+    <tbody><tr>
+      <td style="text-align: right;" colspan="4">
+        <div style="margin-bottom: 0.5em;"><img src="./京都大学教務情報システム_files/button_mini_general_02.gif"> <a href="https://www.k.kyoto-u.ac.jp/external/open_syllabus/all">シラバス一覧</a></div>
+      </td>
+    </tr>
+    <tr><td bgcolor="#9DA0B4" class="th_top_normal" align="center" colspan="4"></td></tr>
+
+    <tr>
+      <td align="center" class="th_normal"><span class="">学部／大学院</span></td>
+      <td class="odd_normal">
+        <select name="condition.departmentNo" id="select_departmentNo">
+          <option value="" class="form_disable">----</option>
+          <option value="80">全学共通科目</option>
+              <option value="1">文学部</option>
+              <option value="4">教育学部</option>
+              <option value="6">法学部</option>
+              <option value="8">経済学部</option>
+              <option value="10">理学部</option>
+              <option value="12">医学部(医)</option>
+              <option value="117">医学部(人間)</option>
+              <option value="14">薬学部</option>
+              <option value="16">工学部</option>
+              <option value="18">農学部</option>
+              <option value="61">総合人間学部</option>
+              <option value="2">文学研究科</option>
+              <option value="3">教育学研究科</option>
+              <option value="5">法学研究科（法政理論専攻）</option>
+              <option value="114">法科大学院</option>
+              <option value="7">経済学研究科</option>
+              <option value="9">理学研究科</option>
+              <option value="11">医学研究科</option>
+              <option value="116">医学研究科（人間健康科学系専攻）</option>
+              <option value="15">薬学研究科</option>
+              <option value="17">工学研究科</option>
+              <option value="19">農学研究科</option>
+              <option value="59">人間・環境学研究科</option>
+              <option value="62">エネルギー科学研究科</option>
+              <option value="64">アジア・アフリカ地域研究研究科</option>
+              <option value="66">情報学研究科</option>
+              <option value="69">生命科学研究科</option>
+              <option value="71">地球環境学舎</option>
+              <option value="73">公共政策大学院</option>
+              <option value="74">経営管理大学院</option>
+              <option value="119">総合生存学館</option>
+              </select>
+      </td>
+      <td align="center" class="th_normal" rowspan="9" nowrap=""><span class="">曜時限</span></td>
+      <td class="odd_normal" rowspan="9" align="center">
+
+        <table border="0" width="0" cellspacing="0" cellpadding="0">
+
+          <tbody><tr>
+            <td align="center" colspan="7">
+
+              <table border="0" class="timetable_table" width="0" cellspacing="" cellpadding="2" style="margin-top:5px" id="week_schedule_holder">
+                <tbody><tr class="th_normal " align="center">
+                  <td class="timetable_sell"><img src="./京都大学教務情報システム_files/0.gif" width="1" height="1" alt="" id="id_img_1370_1"></td>
+                  <td class="timetable_sell">1</td>
+                  <td class="timetable_sell">2</td>
+                  <td class="timetable_sell">3</td>
+                  <td class="timetable_sell">4</td>
+                  <td class="timetable_sell">5</td>
+                </tr>
+
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">月</td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[11]" value="true" id="id_input_1370_1"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[12]" value="true" id="id_input_1370_2"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[13]" value="true" id="id_input_1370_3"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[14]" value="true" id="id_input_1370_4"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[15]" value="true" id="id_input_1370_5"></td>
+                </tr>
+
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">火</td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[21]" value="true" id="id_input_1370_6"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[22]" value="true" id="id_input_1370_7"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[23]" value="true" id="id_input_1370_8"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[24]" value="true" id="id_input_1370_9"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[25]" value="true" id="id_input_1370_10"></td>
+                </tr>
+
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">水</td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[31]" value="true" id="id_input_1370_11"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[32]" value="true" id="id_input_1370_12"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[33]" value="true" id="id_input_1370_13"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[34]" value="true" id="id_input_1370_14"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[35]" value="true" id="id_input_1370_15"></td>
+                </tr>
+
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">木</td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[41]" value="true" id="id_input_1370_16"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[42]" value="true" id="id_input_1370_17"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[43]" value="true" id="id_input_1370_18"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[44]" value="true" id="id_input_1370_19"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[45]" value="true" id="id_input_1370_20"></td>
+                </tr>
+
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">金</td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[51]" value="true" id="id_input_1370_21"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[52]" value="true" id="id_input_1370_22"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[53]" value="true" id="id_input_1370_23"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[54]" value="true" id="id_input_1370_24"></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[55]" value="true" id="id_input_1370_25"></td>
+                </tr>
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">集<br>中<br>等</td>
+                  <td class="timetable_sell">
+                    <input type="checkbox" name="condition.syutyu" value="true" id="id_input_1370_26">
+                  </td>
+                  <td class="timetable_sell" colspan="4"></td>
+                </tr>
+                
+              </tbody></table>
+              <a href="https://www.k.kyoto-u.ac.jp/external/open_syllabus/top#" onclick="checkAllDays(); return false;" id="id_a_1370_27"><img src="./京都大学教務情報システム_files/button_mini_select_all_days.gif" width="129" height="22" alt="" border="0" style="margin-top:5px" name="select_all" id="id_img_1370_2"></a>
+            </td>
+          </tr>
+        </tbody></table>
+
+      </td>
+
+    </tr>
+
+    <tr>
+      <td align="center" class="th_normal"><span class="">学科等</span></td>
+      <td class="odd_normal">
+        <select name="condition.openSyllabusTitle" id="select_openSyllabusTitle">
+          <option value="" class="form_disable">----</option>
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="th_normal"><span class="">授業形態</span></td>
+      <td class="odd_normal">
+        <select name="condition.courseNumberingJugyokeitaiNo" id="select_courseNumberingJugyokeitaiNo">
+          <option value="" class="form_disable">----</option>
+          <option value="1">講義</option>
+              <option value="2">演習</option>
+              <option value="3">実習</option>
+              <option value="4">実験</option>
+              <option value="5">フィールドワーク</option>
+              <option value="6">卒業研究等</option>
+              <option value="7">その他</option>
+              </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="th_normal"><span class="">使用言語</span></td>
+      <td class="odd_normal">
+        <select name="condition.courseNumberingLanguageNo" id="select_courseNumberingLanguageNo">
+          <option value="" class="form_disable">----</option>
+          <option value="1">日本語</option>
+              <option value="2">英語</option>
+              <option value="3">バイリンガル</option>
+              <option value="4">その他</option>
+              </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td align="center" class="th_normal"><span class="">開講期</span></td>
+      <td class="odd_normal">
+        <select name="condition.semesterNo" id="select_semesterNo">
+          <option value="" class="form_disable">----</option>
+          <option value="1">前期</option>
+              <option value="2">後期</option>
+              <option value="3">通年</option>
+              <option value="4">前期集中</option>
+              <option value="5">後期集中</option>
+              <option value="6">通年集中</option>
+              <option value="7">前期前半</option>
+              <option value="8">前期後半</option>
+              <option value="9">後期前半</option>
+              <option value="10">後期後半</option>
+              <option value="11">通年不定</option>
+              <option value="12">前期不定</option>
+              <option value="13">後期不定</option>
+              <option value="17">後期前期</option>
+              </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="th_normal"><span class="">レベル</span></td>
+      <td class="odd_normal">
+        <select name="condition.courseNumberingLevelNo" id="select_courseNumberingLevelNo">
+          <option value="" class="form_disable">----</option>
+          <option value="1">導入的な内容の科目（学部科目）</option>
+              <option value="2">基礎的な内容の科目（学部科目）</option>
+              <option value="3">発展的な内容の科目（学部科目）</option>
+              <option value="4">卒業論文・卒業研究関連の科目（学部科目）</option>
+              <option value="5">基礎的な内容の科目（大学院科目）</option>
+              <option value="6">発展的な内容の科目・研究指導科目（大学院科目）</option>
+              <option value="7">応用的な内容の科目・研究指導科目（大学院科目）</option>
+              <option value="8">大学院共通内容の科目（大学院科目）</option>
+              <option value="9">学部・大学院合同で開講する科目等</option>
+              </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="th_normal"><span class="">学問分野</span></td>
+      <td class="odd_normal">
+        <select name="condition.courseNumberingBunkaNo" id="select_courseNumberingBunkaNo">
+          <option value="" class="form_disable">----</option>
+          <option value="1">情報学基礎</option>
+              <option value="2">計算基盤</option>
+              <option value="3">人間情報学</option>
+              <option value="4">情報学フロンティア</option>
+              <option value="5">地球環境学</option>
+              <option value="6">環境解析学</option>
+              <option value="7">環境保全学</option>
+              <option value="8">環境創成学</option>
+              <option value="9">デザイン学</option>
+              <option value="10">生活科学</option>
+              <option value="11">科学教育・教育工学</option>
+              <option value="12">科学社会学・科学技術史</option>
+              <option value="13">文化財科学・博物館学</option>
+              <option value="14">地理学</option>
+              <option value="15">社会・安全システム科学</option>
+              <option value="16">人間医工学</option>
+              <option value="17">健康・スポーツ科学</option>
+              <option value="18">子ども学</option>
+              <option value="19">エネルギー科学</option>
+              <option value="20">生体分子科学</option>
+              <option value="21">脳科学</option>
+              <option value="22">地域研究</option>
+              <option value="23">ジェンダー</option>
+              <option value="24">観光学</option>
+              <option value="25">哲学</option>
+              <option value="26">芸術学</option>
+              <option value="27">文学</option>
+              <option value="28">言語学</option>
+              <option value="29">史学</option>
+              <option value="30">人文地理学</option>
+              <option value="31">文化人類学</option>
+              <option value="32">法学</option>
+              <option value="33">政治学</option>
+              <option value="34">経済学</option>
+              <option value="35">経営学</option>
+              <option value="36">社会学</option>
+              <option value="37">心理学</option>
+              <option value="38">教育学</option>
+              <option value="39">外国語</option>
+              <option value="40">スポーツ実習</option>
+              <option value="41">ILASセミナー（教養・共通教育）</option>
+              <option value="42">ナノ･マイクロ科学</option>
+              <option value="43">応用物理学</option>
+              <option value="44">量子ビーム科学</option>
+              <option value="45">計算科学</option>
+              <option value="46">数学</option>
+              <option value="47">天文学</option>
+              <option value="48">物理学</option>
+              <option value="49">地球惑星科学</option>
+              <option value="50">プラズマ科学</option>
+              <option value="51">基礎化学</option>
+              <option value="52">複合化学</option>
+              <option value="53">材料化学</option>
+              <option value="54">神経科学</option>
+              <option value="55">実験動物学</option>
+              <option value="56">腫瘍学</option>
+              <option value="57">ゲノム科学</option>
+              <option value="58">生物資源保全学</option>
+              <option value="59">生物科学</option>
+              <option value="60">基礎生物学</option>
+              <option value="61">人類学</option>
+              <option value="62">機械工学</option>
+              <option value="63">電気電子工学</option>
+              <option value="64">土木工学</option>
+              <option value="65">建築学</option>
+              <option value="66">材料工学</option>
+              <option value="67">プロセス・化学工学</option>
+              <option value="68">総合工学</option>
+              <option value="69">生産環境農学</option>
+              <option value="70">農芸化学</option>
+              <option value="71">森林圏科学</option>
+              <option value="72">水圏応用科学</option>
+              <option value="73">社会経済農学</option>
+              <option value="74">農業工学</option>
+              <option value="75">動物生産化学</option>
+              <option value="76">境界農学</option>
+              <option value="77">薬学</option>
+              <option value="78">基礎医学</option>
+              <option value="79">臨床医学</option>
+              <option value="80">境界医学</option>
+              <option value="81">社会医学</option>
+              <option value="82">内科系臨床医学</option>
+              <option value="83">外科系臨床医学</option>
+              <option value="84">歯学</option>
+              <option value="85">看護学</option>
+              <option value="86">総合生存学</option>
+              </select>
+      </td>
+    </tr>
+    
+    <tr>
+      <td align="center" class="th_normal"><span class="">教員名</span></td>
+      <td class="odd_normal"><input id="teacher_name" name="condition.teacherName" type="text" size="25" value=""></td>
+    </tr>
+
+    <tr>
+      <td align="center" class="th_normal"><span class="">キーワード</span></td>
+      <td class="odd_normal"><input id="keyword" name="condition.keyword" type="text" size="25" value=""></td>
+    </tr>
+
+    <tr><td align="center" colspan="4" class="th_top_normal"></td></tr>
+    <tr>
+    	<td colspan="4" align="center">
+            <br>
+            <a href="https://www.k.kyoto-u.ac.jp/external/open_syllabus/top#" onclick="clearCourseSearchForm();return false;" id="id_a_1370_32"><img src="./京都大学教務情報システム_files/button_clear.gif" alit="クリア" border="0" id="id_img_1370_5"></a>
+            &nbsp;&nbsp;
+            <input type="image" src="./京都大学教務情報システム_files/button_search.gif" alt="検索" id="id_input_1370_33" class="syllabus_search_submit_button">
+        </td>
+    </tr>
+  </tbody></table>
+</form>
+</center>
+
+<!-- /contents -->
+
+        <div class="copyright">
+            <img src="./京都大学教務情報システム_files/copyright.gif" alt="">
+          </div>
+        </div>
+
+    </div>
+    <div id="footer">
+
+    </div>
+    <div id="jsp_path">external/open_syllabus/top.jsp</div>
+    <script type="text/javascript" src="./京都大学教務情報システム_files/js.cookie.js.ダウンロード"></script>
+<style>
+.loading_modal_background {
+  position: absolute;
+  background-color: #000;
+  opacity: 0.2;
+  display: none;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+}
+
+.loading_modal_body {
+  position: absolute;
+  padding: 2em;
+  background-color: #FFF;
+  border: 1px solid #000;
+  display: none;
+  z-index: 100000;
+}
+
+.loading_modal_body.now-loading {
+  animation: LOADING_MODAL_ANIMATION 5.1s;
+}
+
+.loading_modal_background.now-loading {
+  animation: LOADING_MODAL_BACKGROUND_ANIMATION 5.1s;
+}
+
+@keyframes LOADING_MODAL_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes LOADING_MODAL_BACKGROUND_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+</style>
+
+<div class="loading_modal_background"></div>
+<div class="loading_modal_body">
+<div class="loading_modal_body_inline" style="display: inline-block"></div>
+<script type="text/javascript">
+  jQuery(function() {
+    var adjustModalPosition = function() {
+      var width = jQuery("body").width();
+      var height = jQuery("body").height();
+      var modal_width = jQuery(".loading_modal_body_inline").width();
+      var modal_height = jQuery(".loading_modal_body_inline").height();
+      var scroll = window.pageYOffset;
+      jQuery(".loading_modal_body").css("top", scroll + window.innerHeight / 2 - modal_height / 2)
+                           .css("left", width / 2 - modal_width / 2);
+    };
+    var openConfirmWindow = function() {
+      var height = document.documentElement.clientHeight < document.body.clientHeight ? document.body.clientHeight : document.documentElement.clientHeight;
+      var width = document.body.offsetWidth;
+      
+        jQuery(".loading_modal_body_inline").html(
+          '<center>' +
+          '  <div style="font-size: 120%; white-space: nowrap">しばらくお待ちください</div>' +
+          '  <br />' +
+          '  <div style="white-space: nowrap">現在アクセスが集中しており、順番に処理をしています。</div>' +
+          '  <div style="color: red">' +
+          '    <div style="text-decoration: underline">' +
+          '      <div style="white-space: nowrap">ブラウザで「戻る」や「更新」のボタンを押したりせず、</div>' +
+          '      <div style="white-space: nowrap">処理が完了するまでこのままお待ちください。</div>' +
+          '    </div>' +
+          '    <div style="white-space: nowrap">（履修登録期間中は処理に10分程度かかることがあります）</div>' +
+          '  </div>' +
+          '</center>'
+        );
+      
+      jQuery(".loading_modal_background").height(height).width(width).addClass("now-loading").show();
+      jQuery(".loading_modal_body").addClass("now-loading").show();
+      adjustModalPosition();
+    };
+
+    var absolutePath = function(path) {
+      var e = document.createElement('span');
+      e.innerHTML = '<a href="' + path + '" />';
+      return e.firstChild.href;
+    }
+
+    var regTimeslotPage = /\/student\/la\/timeslot\//;
+    jQuery("a").bind("click", function(e) {
+      if (!e.customClickTarget) e.customClickTarget = e.currentTarget;
+    });
+
+    jQuery("body").bind("click", function(e) {
+      if (e.customClickTarget && !e.defaultPrevented) {
+        var $a = jQuery(e.customClickTarget);
+        var path = absolutePath($a.attr("href"));
+        if (!$a.attr("target") && path.match(regTimeslotPage) && !$a.is(".no-loading-modal")) {
+          openConfirmWindow();
+        }
+      }
+    });
+    jQuery("body").bind("submit", function(e) {
+      if (!e.defaultPrevented) {
+        var $f = jQuery(e.target);
+        var path = absolutePath($f.attr("action"));
+        if (path.match(regTimeslotPage) && !$f.is(".no-loading-modal")) {
+          openConfirmWindow();
+        }
+      }
+    });
+  });
+</script>
+
+
+</div></div></body></html>

@@ -1,0 +1,42 @@
+
+body {
+}
+
+#frame {
+    background-color: #FFF;
+}
+
+
+/*------------- header -------------*/
+
+#header_menu_left {
+    background: #FFF url(/img/header_04.gif) repeat left bottom;
+}
+
+/* 授業料免除システムに飛ぶためのリンク */
+.jumen-link {
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.jumen-link a {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+/*------------- menu -------------*/
+
+
+/*------------- contents -------------*/
+
+
+
+
+
+
+/*------------- footer -------------*/
+#footer {
+    border-right:1px solid #000000;
+    border-left:none;
+}

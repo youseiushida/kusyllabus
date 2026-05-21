@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-31j" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <link rel="stylesheet" type="text/css" href="/css/behavior.css">
+    <link rel="stylesheet" type="text/css" href="/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/css/la_style.css">
+    <script type="text/javascript" src="/js/prototype.js"> </script>
+    <script type="text/javascript" src="/js/jquery-2.1.4.js"> </script>
+    <script>
+     jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="/js/jquery_auto.js"> </script>
+
+    <title>京都大学教務情報システム</title>
+  <link rel="stylesheet" href="/css/webfont.css" />
+
+<style>
+  .css-submit-button {
+    display: inline-block;
+  }
+  input::-webkit-contacts-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+  }
+</style>
+
+<script type="text/javascript">
+  jQuery(function() {
+    jQuery(".css-submit-button").click(function(e) {
+      jQuery(e.target).parents("form").submit();
+    });
+  });
+</script>
+</head>
+  <body onload="">
+  <div id="frame">
+    <div id="header">
+  <div class="header_left">
+    <img src="/img/zk_logo_l.gif" alt="TOPへ"  id="id_img_10_0" >
+  </div>
+
+  <div class="header_right">
+    <div class="logo"><img src="/img/zk_logo_r.gif" alt="" id="id_img_10_1" ></div>
+
+    <div class="header_menu">
+      <ul class="header_menu_left">      
+      </ul>
+
+      <ul class="header_menu_right three_storied">
+        <li style="height: 24px">&nbsp;</li>
+        <li style="height: 24px"><a href="/external/open_syllabus/top" id="id_a_10_6" ><img src="/img/zk_header_home_o.gif" alt="KULASIS TOP" /></a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<div id="wrapper">
+      <div class="contents" style="width: 968px">
+        <div class="right" style="margin-top: 3px;">
+          <span class="link"><a href="/external/open_syllabus/department_syllabus?lectureNo=26510&departmentNo=1&display_lang=en">English</a></span> |
+          <span class="link"><a href="/external/open_syllabus/department_syllabus?lectureNo=26510&departmentNo=1&display_lang=jp">日本語</a></span>
+        </div>
+
+        <!-- contents -->
+
+        <script src="/js/back.js"></script>
+
+  <!-- title -->
+  <div class="title">
+    <div style="font-family: 'KulasisWebFont'; font-weight: bold; color: #020C4A; font-size: 24px;">
+      <img src="/img/mark_01.gif" alt="" id="id_img_1239_0">
+      シラバス検索
+    </div>
+  </div>
+  
+  <center>
+    <c:set scope="request" var="item" value="jp.ne.mmj.kulasis.rcg.base.dto.Syllabus@464b760c" />
+    <style>
+td.lesson_plan_sell{
+padding: 5px;
+}
+div.lesson_plan_subheading {
+  margin-bottom: 3px;
+}
+.upperGray{
+  border-top: 1px solid #CCC;
+}
+.lowerGray{
+  border-bottom: 1px solid #CCC;
+}
+  a.reference-url {
+    word-break: break-all;
+  }
+</style>
+
+<img src="/img/0.gif" width="1" height="7" alt="" id="id_img_1373_0" ><br />
+
+
+<!-- syllabus -->
+
+<table border="1" class="lesson_plan_sell" style="border-color:#9DA0B4;" width="600" cellspacing="0" cellpadding="2">
+  <tr><td bgcolor="#9DA0B4" class="th_top_normal syllabus_sell" align="center" colspan="4"><img src="/img/0.gif" width="1" height="1" alt="" id="id_img_1373_1" ></td></tr>
+	<tr>
+    <td colspan="2" class="lesson_plan_sell upperGray">
+      <table border="0" cellspacing="0" cellpadding="2" width="595">
+      	<tr valign="top">
+					<td nowrap width="123"><span class="lesson_plan_subheading">(科目ナンバリング)</span></td>
+      		<td nowrap>
+						U-LET10 21302 LJ36<br/></td>
+      	</tr>
+      </table>
+    </td>
+  </tr>
+	<tr valign="top">
+    <td class="lesson_plan_sell"  width="280">
+      <table border="0" cellspacing="0" cellpadding="2">
+
+        <tr><td><img src="/img/0.gif" width="1" height="3" alt="" id="id_img_1373_2" ></td></tr>
+
+        <tr style="vertical-align: top"><td nowrap width="55"><span class="lesson_plan_subheading">(科目名)</span></td>
+	  <td width="225"><span class="x100"><b>
+		国語学 (講義) <br /></b>
+	    </span>
+	</td></tr>
+	<tr valign="top"><td nowrap width="55"><span class="lesson_plan_subheading">(英 訳)</span></td><td>Japanese Language  (Lectures) </td></tr>
+      </table>
+    </td>
+
+    <td class="lesson_plan_sell">
+      <table border="0" width="98%" cellspacing="0" cellpadding="0">
+
+        <tr><td nowrap><span class="lesson_plan_subheading">(所属部局)</span></td><td nowrap><span class="lesson_plan_subheading">(職 名)</span></td><td nowrap><span class="lesson_plan_subheading">(氏 名)</span></td></tr>
+
+
+        <tr>
+	    <td>文学研究科</td>
+		<td>准教授</td>
+	      <td>
+	      田中　草大</td></tr>
+        </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="lesson_plan_sell lowerGray">
+
+      <table border="0" cellspacing="0" cellpadding="2" width="595">
+        <tr valign="top">
+    <td width="63" nowrap class="top"><span class="lesson_plan_subheading">(単位数)</span></td>
+	    <td width="140"><span class="">2単位</span></td>
+    <td width="48" nowrap class="top"><span class="lesson_plan_subheading">(開講年度・開講期)</span></td>
+	  <td width="140"><span class="">2026・前期</span></td>
+	</tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="lesson_plan_sell upperGray lowerGray">
+      <table border="0" cellspacing="0" cellpadding="2" width="595">
+        <tr valign="top">
+          <td nowrap width="64"><span class="lesson_plan_subheading">(曜時限)</span></td>
+	  <td width="140"><span class="">
+              水2</span></td>
+
+          <td width="63" nowrap class="top" width="64"><span class="lesson_plan_subheading">(授業形態)</span></td>
+	        <td width="140"><span class="">
+              講義</span></td>
+
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="lesson_plan_sell upperGray">
+      <table border="0" cellspacing="0" cellpadding="2" width="595">
+      	<tr valign="top">
+      		<td nowrap width="63"><span class="lesson_plan_subheading">(使用言語)</span></td>
+      		<td nowrap>日本語</td>
+      	</tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- 薬学部、経営管理大学院以外はヘッダに全部(1-5)表示 -->
+    <tr>
+      <td class="lesson_plan_sell upperGray" style="text-align: left" colspan="2">
+	<table border="0" cellspacing="0" cellpadding="2" width="595">
+          <tr valign="top">
+	    <td width="Infinity%">
+		  <table>
+		    <tr>
+		      <td class="lesson_plan_subheading">(題目)</td>
+		      <td >
+			日本語史研究概説：資料と方法（1）</td>
+		    </tr>
+		  </table>
+		</td>
+	      </tr>
+	</table>
+      </td>
+    </tr>
+  <tr><td colspan="2" class="lesson_plan_sell">
+      <div class="h120">
+        <div class="lesson_plan_subheading">(授業の概要・目的)</div>
+	<div>
+          この授業では、日本語の歴史を研究するためにどのような資料がどのように用いられているかを分野ごとに概説します。前期では「文字・表記」と「音声・音韻」の分野を、後期では「文法」「語彙・文体」の分野を中心に扱います。<br />録音資料が残る以前の時代の言語の実態を知るためには、「文字資料(文献)」を用いることが中心的方法となりますが、この際、「どのような言語事象を探りたいか」ということと、「どのような資料を参照すべきか」に密接な関係があることに注意する必要があります。例えば、『源氏物語』は平安時代の「文法」や「語彙」を知るための中核的資料ですが、平安時代の「表記」や「音韻」を知るための資料としては使いにくいのですが、なぜそうなるのかは、資料それぞれの性質について学ぶことで理解できます。<br />資料の性質を知ることで、日本語の歴史はどのような方法によって明らかにされているかも知ることができます。<br /></div>
+      </div>
+  </td></tr>
+  
+  <tr><td colspan="2" class="lesson_plan_sell">
+      <div class="h120">
+        <div class="lesson_plan_subheading">(到達目標)</div>
+	<div>
+          (1)日本語史の研究において、時代ごと・分野ごとにどのような資料が用いられているかを知る。<br />(2)それらの資料がどのような性質を有しているかを理解する。<br />(3)それらの資料を用いて、日本語の歴史についてどのようなことがどのように研究されているかを理解する。</div>
+      </div>
+  </td></tr>
+
+  <tr><td colspan="2" class="lesson_plan_sell">
+      <div class="h120">
+        <div class="lesson_plan_subheading">(授業計画と内容)</div>
+	<div>
+          第1・2回：イントロダクション<br /><br />第3～7回：文字・表記史の資料と方法<br />　キーワード：奈良時代の漢字資料、平仮名資料と片仮名資料、平安時代以降の漢文資料、漢字仮名交じり資料<br /><br />第8～14回：音韻史の資料と方法<br />　キーワード：過去の音韻はどのように分かるか、音韻が探りやすい時代、母音/子音の変化、アクセント史資料<br /><br />（期末試験）<br /><br />第15回：フィードバック </div>
+      </div>
+  </td></tr>
+
+  <tr><td colspan="2" class="lesson_plan_sell">
+        <div class=" h120">
+	  <div class="lesson_plan_subheading">(履修要件)</div>
+	  <div>
+	    
+	      特になし
+	    </div>
+        </div>
+    </td></tr>
+  <tr><td colspan="2" class="lesson_plan_sell">
+        <div class=" h120">
+	  <div class="lesson_plan_subheading">(成績評価の方法・観点)</div>
+	  <div>
+	    期末試験：80%<br />平常点（授業コメントなど）：20％<br /></div>
+        </div>
+
+    </td></tr>
+  <tr>
+      <td colspan="2" class="lesson_plan_sell" >
+        <div><span class="lesson_plan_subheading">(教科書)</span></div>
+        <div>
+	  <span class=" h120">使用しない</span><br />
+	  <span class=" h120"></span>
+        </div>
+      </td>
+    </tr>
+  <tr>
+      <td colspan="2" class="lesson_plan_sell">
+        <div><span class="lesson_plan_subheading">(参考書等)&nbsp;</span></div>
+        <div>
+	    <span class=" h120">沖森卓也(編著)『日本語史概説』（朝倉書店、2010年）<br />その他、授業中に紹介する。</span>
+        </div>
+      </td>
+    </tr>
+  <tr><td colspan="2" class="lesson_plan_sell">
+        <div class=" h120">
+	  <div class="lesson_plan_subheading">(授業外学修（予習・復習）等)</div>
+	  <div>
+	    （予習）<br />・事前配布された資料を通読し、先行回の内容との関連性を把握する、知らない用語の意味を調べるなどして授業を受ける準備を整える。<br />（復習）<br />・配付資料および授業ノートを読み返し、理解の不充分な部分を確認して、自学または授業後アンケートなどに反映させる。<br />・授業中に指示する参考文献を読み、理解を深める。&nbsp;
+	  </div>
+        </div>
+    </td></tr>
+  <tr><td colspan="2" class="lesson_plan_sell">
+        <div class=" h120">
+	  <div class="lesson_plan_subheading">(主要授業科目（学部・学科名）)</div>
+	  <div>
+	    文学部&nbsp;
+	  </div>
+        </div>
+    </td></tr>
+  <tr><td bgcolor="#9DA0B4" class="th_top_normal syllabus_sell" align="center" colspan="4">
+      <img src="/img/0.gif" width="1" height="1" alt="" id="id_img_1373_4" >
+  </td></tr>
+</table>
+<br />
+<!--/syllabus -->
+</center>
+
+  <div style="text-align: center; margin-bottom: 3em;">
+    <a href="#" id="back_button"><img src="/img/button_back.gif" /></a> 
+  </div>
+
+  <script type="text/javascript">
+    jQuery(function() {
+      jQuery("#back_button").click(function(e) {
+        e.preventDefault();
+        if (window.history.length <= 1) {
+          window.location.href = "/external/open_syllabus/top";
+        } else {
+          window.history.back();
+        }
+      });
+    });
+  </script>
+
+<!-- /contents -->
+
+        <div class="copyright">
+            <img src="/img/copyright.gif" alt="">
+          </div>
+        </div>
+
+    </div>
+    <div id="footer" />
+
+    </div>
+    <div id="jsp_path">external/open_syllabus/department_syllabus.jsp</div>
+    <script type="text/javascript" src="/js/js.cookie.js"></script>
+<style>
+.loading_modal_background {
+  position: absolute;
+  background-color: #000;
+  opacity: 0.2;
+  display: none;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+}
+
+.loading_modal_body {
+  position: absolute;
+  padding: 2em;
+  background-color: #FFF;
+  border: 1px solid #000;
+  display: none;
+  z-index: 100000;
+}
+
+.loading_modal_body.now-loading {
+  animation: LOADING_MODAL_ANIMATION 5.1s;
+}
+
+.loading_modal_background.now-loading {
+  animation: LOADING_MODAL_BACKGROUND_ANIMATION 5.1s;
+}
+
+@keyframes LOADING_MODAL_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes LOADING_MODAL_BACKGROUND_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+</style>
+
+<div class="loading_modal_background"></div>
+<div class="loading_modal_body">
+<div class="loading_modal_body_inline" style="display: inline-block"></div>
+<script type="text/javascript">
+  jQuery(function() {
+    var adjustModalPosition = function() {
+      var width = jQuery("body").width();
+      var height = jQuery("body").height();
+      var modal_width = jQuery(".loading_modal_body_inline").width();
+      var modal_height = jQuery(".loading_modal_body_inline").height();
+      var scroll = window.pageYOffset;
+      jQuery(".loading_modal_body").css("top", scroll + window.innerHeight / 2 - modal_height / 2)
+                           .css("left", width / 2 - modal_width / 2);
+    };
+    var openConfirmWindow = function() {
+      var height = document.documentElement.clientHeight < document.body.clientHeight ? document.body.clientHeight : document.documentElement.clientHeight;
+      var width = document.body.offsetWidth;
+      
+        jQuery(".loading_modal_body_inline").html(
+          '<center>' +
+          '  <div style="font-size: 120%; white-space: nowrap">しばらくお待ちください</div>' +
+          '  <br />' +
+          '  <div style="white-space: nowrap">現在アクセスが集中しており、順番に処理をしています。</div>' +
+          '  <div style="color: red">' +
+          '    <div style="text-decoration: underline">' +
+          '      <div style="white-space: nowrap">ブラウザで「戻る」や「更新」のボタンを押したりせず、</div>' +
+          '      <div style="white-space: nowrap">処理が完了するまでこのままお待ちください。</div>' +
+          '    </div>' +
+          '    <div style="white-space: nowrap">（履修登録期間中は処理に10分程度かかることがあります）</div>' +
+          '  </div>' +
+          '</center>'
+        );
+      
+      jQuery(".loading_modal_background").height(height).width(width).addClass("now-loading").show();
+      jQuery(".loading_modal_body").addClass("now-loading").show();
+      adjustModalPosition();
+    };
+
+    var absolutePath = function(path) {
+      var e = document.createElement('span');
+      e.innerHTML = '<a href="' + path + '" />';
+      return e.firstChild.href;
+    }
+
+    var regTimeslotPage = /\/student\/la\/timeslot\//;
+    jQuery("a").bind("click", function(e) {
+      if (!e.customClickTarget) e.customClickTarget = e.currentTarget;
+    });
+
+    jQuery("body").bind("click", function(e) {
+      if (e.customClickTarget && !e.defaultPrevented) {
+        var $a = jQuery(e.customClickTarget);
+        var path = absolutePath($a.attr("href"));
+        if (!$a.attr("target") && path.match(regTimeslotPage) && !$a.is(".no-loading-modal")) {
+          openConfirmWindow();
+        }
+      }
+    });
+    jQuery("body").bind("submit", function(e) {
+      if (!e.defaultPrevented) {
+        var $f = jQuery(e.target);
+        var path = absolutePath($f.attr("action"));
+        if (path.match(regTimeslotPage) && !$f.is(".no-loading-modal")) {
+          openConfirmWindow();
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>

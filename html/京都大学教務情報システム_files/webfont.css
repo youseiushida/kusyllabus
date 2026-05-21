@@ -1,0 +1,29 @@
+/* generate by 源真ゴシック */
+/* http://jikasei.me/font/genshin/ */
+@font-face {
+     font-family: "KulasisWebFont";
+     src: url("/font/KulasisWebFont-Light.eot?t=1653986532");
+     src: url("/font/KulasisWebFont-Light.eot?t=1653986532#iefix") format("embedded-opentype"),
+     url("/font/KulasisWebFont-Light.woff?t=1653986532") format("woff"),
+     url("/font/KulasisWebFont-Light.ttf?t=1653986532") format("truetype");
+     font-style: normal;
+     font-weight: 200;
+}
+@font-face {
+     font-family: "KulasisWebFont";
+     src: url("/font/KulasisWebFont-Medium.eot?t=1653986532");
+     src: url("/font/KulasisWebFont-Medium.eot?t=1653986532#iefix") format("embedded-opentype"),
+     url("/font/KulasisWebFont-Medium.woff?t=1653986532") format("woff"),
+     url("/font/KulasisWebFont-Medium.ttf?t=1653986532") format("truetype");
+     font-style: normal;
+     font-weight: 500;
+}
+@font-face {
+     font-family: "KulasisWebFont";
+     src: url("/font/KulasisWebFont-Bold.eot?t=1653986532");
+     src: url("/font/KulasisWebFont-Bold.eot?t=1653986532#iefix") format("embedded-opentype"),
+     url("/font/KulasisWebFont-Bold.woff?t=1653986532") format("woff"),
+     url("/font/KulasisWebFont-Bold.ttf?t=1653986532") format("truetype");
+     font-style: normal;
+     font-weight: 700;
+}

@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-31j" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <link rel="stylesheet" type="text/css" href="/css/behavior.css">
+    <link rel="stylesheet" type="text/css" href="/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/css/la_style.css">
+    <script type="text/javascript" src="/js/prototype.js"> </script>
+    <script type="text/javascript" src="/js/jquery-2.1.4.js"> </script>
+    <script>
+     jQuery.noConflict();
+    </script>
+    <script type="text/javascript" src="/js/jquery_auto.js"> </script>
+
+    <title>京都大学教務情報システム</title>
+  <link rel="stylesheet" href="/css/webfont.css" />
+
+<style>
+  .css-submit-button {
+    display: inline-block;
+  }
+  input::-webkit-contacts-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+  }
+</style>
+
+<script type="text/javascript">
+  jQuery(function() {
+    jQuery(".css-submit-button").click(function(e) {
+      jQuery(e.target).parents("form").submit();
+    });
+  });
+</script>
+</head>
+  <body onload="">
+  <div id="frame">
+    <div id="header">
+  <div class="header_left">
+    <img src="/img/zk_logo_l.gif" alt="TOPへ"  id="id_img_10_0" >
+  </div>
+
+  <div class="header_right">
+    <div class="logo"><img src="/img/zk_logo_r.gif" alt="" id="id_img_10_1" ></div>
+
+    <div class="header_menu">
+      <ul class="header_menu_left">      
+      </ul>
+
+      <ul class="header_menu_right three_storied">
+        <li style="height: 24px">&nbsp;</li>
+        <li style="height: 24px"><a href="/external/open_syllabus/top" id="id_a_10_6" ><img src="/img/zk_header_home_o.gif" alt="KULASIS TOP" /></a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<div id="wrapper">
+      <div class="contents" style="width: 968px">
+        <div class="right" style="margin-top: 3px;">
+          <span class="link"><a href="/external/open_syllabus/top?display_lang=en">English</a></span> |
+          <span class="link"><a href="/external/open_syllabus/top?display_lang=jp">日本語</a></span>
+        </div>
+
+        <!-- contents -->
+
+        <div class="title">
+    <div style="font-family: 'KulasisWebFont'; font-weight: bold; color: #020C4A; font-size: 24px;">
+      <img src="/img/mark_01.gif" alt="" id="id_img_1239_0">
+      Find Syllabus
+    </div>
+  </div>
+
+  <!-- +++++++++++++++++++++ contents +++++++++++++++++++++ -->
+
+  <br />
+  <center >
+    <script type="text/javascript">
+function clearCourseSearchForm() {
+    jQuery('#week_schedule_holder input').each(function(){
+    	this.checked = false;
+    });
+
+    jQuery("#select_departmentNo")[0].selectedIndex = 0;
+    jQuery("#select_openSyllabusTitle")[0].selectedIndex = 0;
+    jQuery("#select_courseNumberingJugyokeitaiNo")[0].selectedIndex = 0;
+    jQuery("#select_courseNumberingLanguageNo")[0].selectedIndex = 0;
+    jQuery("#select_semesterNo")[0].selectedIndex = 0;
+    jQuery("#select_courseNumberingLevelNo")[0].selectedIndex = 0;
+    jQuery("#select_courseNumberingBunkaNo")[0].selectedIndex = 0;
+    jQuery("#teacher_name")[0].value = '';
+    jQuery("#keyword")[0].value = '';
+}
+
+function checkAllDays() {
+	
+    var inputs = jQuery('#week_schedule_holder input').filter(function(){return jQuery(this).attr('name') != 'condition.syutyu'; });
+    
+    var all = true;
+    inputs.each(function(){
+    	if (!this.checked) {
+    		all = false;
+		}
+    });
+    
+    if (all) {
+    	inputs.each(function(){this.checked = false;});
+    } else {
+    	inputs.each(function(){this.checked = true;});
+	}
+}
+
+jQuery(function() {
+    jQuery("#select_departmentNo").bind("change", function() {
+        jQuery.get(
+            "open_syllabus_titles",
+            {departmentNo: jQuery("#select_departmentNo").val()},
+            function(data) {
+                jQuery("#select_openSyllabusTitle").html(data);
+                setTimeout(function() {
+                    jQuery("#select_openSyllabusTitle")[0].selectedIndex = 0;
+                }, 0);
+            }
+        );
+    });
+});
+</script>
+<form action="search" method="get" name="detail_search" id="id_form_1370_0" >
+  <table class="form_table" style="width: 570" >
+    <tr>
+      <td style="text-align: right;" colspan="4">
+        <div style="margin-bottom: 0.5em;"><img src="/img/button_mini_general_02.gif" /> <a href="all">To Syllabus</a></div>
+      </td>
+    </tr>
+    <tr><td bgcolor="#9DA0B4" class="th_top_normal" align="center" colspan="4"></td></tr>
+
+    <tr>
+      <td align="center" class="th_normal"><span class="">Faculty/<br />Graduate School</span></td>
+      <td class="odd_normal">
+        <select name="condition.departmentNo" id="select_departmentNo">
+          <option value="" class="form_disable">----</option>
+          <option value="80" >Liberal Arts and General Education Courses</option>
+              <option value="1" >Faculty of Letters</option>
+              <option value="4" >Faculty of Education</option>
+              <option value="6" >Faculty of Law</option>
+              <option value="8" >Faculty of Economics</option>
+              <option value="10" >Faculty of Science</option>
+              <option value="12" >Faculty of Medicine (Medicine)</option>
+              <option value="117" >Faculty of Medicine (Human Health Science)</option>
+              <option value="14" >Faculty of Pharmaceutical Sciences</option>
+              <option value="16" >Faculty of Engineering</option>
+              <option value="18" >Faculty of Agriculture</option>
+              <option value="61" >Faculty of Integrated Human Studies</option>
+              <option value="2" >Graduate School of Letters</option>
+              <option value="3" >Graduate School of Education</option>
+              <option value="5" >Graduate School of Law (Legal and Political Studies)</option>
+              <option value="114" >Law School</option>
+              <option value="7" >Graduate School of Economics</option>
+              <option value="9" >Graduate School of Science</option>
+              <option value="11" >Graduate School of Medicine (Medicine/Medical Sience/Public Health)</option>
+              <option value="116" >Graduate School of Medicine (Human Health Science)</option>
+              <option value="15" >Graduate School of Pharmaceutical Sciences</option>
+              <option value="17" >Graduate School of Engineering</option>
+              <option value="19" >Graduate School of Agriculture</option>
+              <option value="59" >Graduate School of Human and Environmental Studies</option>
+              <option value="62" >Graduate School of Energy Science</option>
+              <option value="64" >Graduate School of Asian and African Area Studies</option>
+              <option value="66" >Graduate School of Informatics</option>
+              <option value="69" >Graduate School of Biostudies</option>
+              <option value="71" >Graduate School of Global Environmental Studies</option>
+              <option value="73" >School of Government</option>
+              <option value="74" >Graduate School of Management</option>
+              <option value="119" >Graduate School of Advanced Integrated Studies in Human Survivability</option>
+              </select>
+      </td>
+      <td align="center" class="th_normal" rowspan="9" nowrap><span class="">Day / period</span></td>
+      <td class="odd_normal" rowspan="9" align="center">
+
+        <table border="0" width="0" cellspacing="0" cellpadding="0">
+
+          <tr>
+            <td align="center" colspan="7">
+
+              <table border="0" class="timetable_table" width="0" cellspacing="" cellpadding="2" style="margin-top:5px" id="week_schedule_holder">
+                <tr class="th_normal " align="center">
+                  <td class="timetable_sell"><img src="/img/0.gif" width="1" height="1" alt="" id="id_img_1370_1" ></td>
+                  <td class="timetable_sell">1</td>
+                  <td class="timetable_sell">2</td>
+                  <td class="timetable_sell">3</td>
+                  <td class="timetable_sell">4</td>
+                  <td class="timetable_sell">5</td>
+                </tr>
+
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">Mon.</td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[11]" value="true"  id="id_input_1370_1" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[12]" value="true"  id="id_input_1370_2" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[13]" value="true"  id="id_input_1370_3" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[14]" value="true"  id="id_input_1370_4" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[15]" value="true"  id="id_input_1370_5" ></td>
+                </tr>
+
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">Tues.</td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[21]" value="true"  id="id_input_1370_6" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[22]" value="true"  id="id_input_1370_7" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[23]" value="true"  id="id_input_1370_8" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[24]" value="true"  id="id_input_1370_9" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[25]" value="true"  id="id_input_1370_10" ></td>
+                </tr>
+
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">Wed.</td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[31]" value="true"  id="id_input_1370_11" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[32]" value="true"  id="id_input_1370_12" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[33]" value="true"  id="id_input_1370_13" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[34]" value="true"  id="id_input_1370_14" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[35]" value="true"  id="id_input_1370_15" ></td>
+                </tr>
+
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">Thurs.</td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[41]" value="true"  id="id_input_1370_16" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[42]" value="true"  id="id_input_1370_17" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[43]" value="true"  id="id_input_1370_18" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[44]" value="true"  id="id_input_1370_19" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[45]" value="true"  id="id_input_1370_20" ></td>
+                </tr>
+
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">Fri.</td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[51]" value="true"  id="id_input_1370_21" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[52]" value="true"  id="id_input_1370_22" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[53]" value="true"  id="id_input_1370_23" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[54]" value="true"  id="id_input_1370_24" ></td>
+                  <td class="timetable_sell"><input type="checkbox" name="condition.weekSchedule[55]" value="true"  id="id_input_1370_25" ></td>
+                </tr>
+                <tr class="" align="center">
+                  <td class="th_normal timetable_sell">Intensive<br />etc.</td>
+                  <td class="timetable_sell">
+                    <input type="checkbox" name="condition.syutyu" value="true"   id="id_input_1370_26" />
+                  </td>
+                  <td class="timetable_sell" colspan="4"></td>
+                </tr>
+                
+              </table>
+              <a href="#" onClick="checkAllDays(); return false;" id="id_a_1370_27" ><img src="/img/button_mini_select_all_days_en.gif" width="129" height="22" alt="" border="0" style="margin-top:5px" name="select_all" id="id_img_1370_2" ></a>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+
+    </tr>
+
+    <tr>
+      <td align="center" class="th_normal"><span class="">Departments/<br />Divisions</span></td>
+      <td class="odd_normal">
+        <select name="condition.openSyllabusTitleEn" id="select_openSyllabusTitle">
+          <option value="" class="form_disable">----</option>
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="th_normal"><span class="">Course Type</span></td>
+      <td class="odd_normal">
+        <select name="condition.courseNumberingJugyokeitaiNo" id="select_courseNumberingJugyokeitaiNo">
+          <option value="" class="form_disable">----</option>
+          <option value="1" >Lecture</option>
+              <option value="2" >Seminar</option>
+              <option value="3" >Practice</option>
+              <option value="4" >Experiment</option>
+              <option value="5" >Field Work</option>
+              <option value="6" >Graduate Research</option>
+              <option value="7" >Others</option>
+              </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="th_normal"><span class="">Language</span></td>
+      <td class="odd_normal">
+        <select name="condition.courseNumberingLanguageNo" id="select_courseNumberingLanguageNo">
+          <option value="" class="form_disable">----</option>
+          <option value="1" >Japanese</option>
+              <option value="2" >English</option>
+              <option value="3" >Bilingual</option>
+              <option value="4" >Others</option>
+              </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td align="center" class="th_normal"><span class="">Term</span></td>
+      <td class="odd_normal">
+        <select name="condition.semesterNo" id="select_semesterNo">
+          <option value="" class="form_disable">----</option>
+          <option value="1" >First semester</option>
+              <option value="2" >Second semester</option>
+              <option value="3" >Year-round</option>
+              <option value="4" >Intensive, First semester</option>
+              <option value="5" >Intensive, Second semester</option>
+              <option value="6" >Intensive, year-round</option>
+              <option value="7" >The first half of first semester</option>
+              <option value="8" >The second half of first semester</option>
+              <option value="9" >The first half of second semester</option>
+              <option value="10" >The second half of second semester</option>
+              <option value="11" >Irregular, year-round</option>
+              <option value="12" >Irregular, First semester</option>
+              <option value="13" >Irregular, Second semester</option>
+              <option value="17" >Second semester, first semester</option>
+              </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="th_normal"><span class="">Level</span></td>
+      <td class="odd_normal">
+        <select name="condition.courseNumberingLevelNo" id="select_courseNumberingLevelNo">
+          <option value="" class="form_disable">----</option>
+          <option value="1" >Introductory Courses (Undergraduate Courses)</option>
+              <option value="2" >Fundamental Courses (Undergraduate Courses)</option>
+              <option value="3" >Advanced Courses (Undergraduate Courses)</option>
+              <option value="4" >Thesis / Supervised Research (Undergraduate Courses)</option>
+              <option value="5" >Fundamental Courses (Graduate Courses)</option>
+              <option value="6" >Advanced Courses / Supervised Research (Graduate Courses)</option>
+              <option value="7" >Applied Courses / Supervised Research (Graduate Courses)</option>
+              <option value="8" >Common Graduate Courses (Graduate Courses)</option>
+              <option value="9" >Joint Courses (Undergraduate and Graduate Courses)</option>
+              </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" class="th_normal"><span class="">Subject</span></td>
+      <td class="odd_normal">
+        <select name="condition.courseNumberingBunkaNo" id="select_courseNumberingBunkaNo">
+          <option value="" class="form_disable">----</option>
+          <option value="1" >Principles of informatic</option>
+              <option value="2" >Computing technologies</option>
+              <option value="3" >Humaninformatics</option>
+              <option value="4" >Frontiers of informatics</option>
+              <option value="5" >Global Environmental studies</option>
+              <option value="6" >Environmental analyses and evaluation</option>
+              <option value="7" >Environmental conservation</option>
+              <option value="8" >Sustainable and environmental system development</option>
+              <option value="9" >Design science</option>
+              <option value="10" >Human life science</option>
+              <option value="11" >Science education/ Educational technology</option>
+              <option value="12" >Sociology/History of science and technology</option>
+              <option value="13" >Cultural assets study and museology</option>
+              <option value="14" >Geography</option>
+              <option value="15" >Social/Safety system science</option>
+              <option value="16" >Biomedical engineering</option>
+              <option value="17" >Health/Sports science</option>
+              <option value="18" >Childhood science</option>
+              <option value="19" >Energy science</option>
+              <option value="20" >Biomolecular science</option>
+              <option value="21" >Brain sciences</option>
+              <option value="22" >Area studies</option>
+              <option value="23" >Gender</option>
+              <option value="24" >Tourism Studies</option>
+              <option value="25" >Philosophy</option>
+              <option value="26" >Art studies</option>
+              <option value="27" >Literature</option>
+              <option value="28" >Linguistics</option>
+              <option value="29" >History</option>
+              <option value="30" >Human geography</option>
+              <option value="31" >Cultural anthropology</option>
+              <option value="32" >Law</option>
+              <option value="33" >Politics</option>
+              <option value="34" >Economics</option>
+              <option value="35" >Management</option>
+              <option value="36" >Sociology</option>
+              <option value="37" >Psychology</option>
+              <option value="38" >Education</option>
+              <option value="39" >Foreign language</option>
+              <option value="40" >Sports practice</option>
+              <option value="41" >Seminars in Liberal Arts and Sciences</option>
+              <option value="42" >Nano/Micro science</option>
+              <option value="43" >Applied physics</option>
+              <option value="44" >Quantum beam science</option>
+              <option value="45" >Computational science</option>
+              <option value="46" >Mathematics</option>
+              <option value="47" >Astronomy</option>
+              <option value="48" >Physics</option>
+              <option value="49" >Earth and planetary science</option>
+              <option value="50" >Plasma science</option>
+              <option value="51" >Basic chemistry</option>
+              <option value="52" >Applied chemistry</option>
+              <option value="53" >Materials chemistry</option>
+              <option value="54" >Neuroscience</option>
+              <option value="55" >Laboratory animal science</option>
+              <option value="56" >Oncology</option>
+              <option value="57" >Genome science</option>
+              <option value="58" >Conservation of biological resources</option>
+              <option value="59" >Biological Science</option>
+              <option value="60" >Basic biology</option>
+              <option value="61" >Anthropology</option>
+              <option value="62" >Mechanical engineering</option>
+              <option value="63" >Electrical and electronic engineering</option>
+              <option value="64" >Civil engineering</option>
+              <option value="65" >Architecture and building engineering</option>
+              <option value="66" >Material engineering</option>
+              <option value="67" >Process/Chemical engineering</option>
+              <option value="68" >Integrated engineering</option>
+              <option value="69" >Plant production and environmental agriculture</option>
+              <option value="70" >Agricultural chemistry</option>
+              <option value="71" >Forest and forest products science</option>
+              <option value="72" >Applied aquatic science</option>
+              <option value="73" >Agricultural science in society and economy</option>
+              <option value="74" >Agroengineering</option>
+              <option value="75" >Animal life science</option>
+              <option value="76" >Boundary agriculture</option>
+              <option value="77" >Pharmacy</option>
+              <option value="78" >Basic medicine</option>
+              <option value="79" >Clinical medicine</option>
+              <option value="80" >Boundary medicine</option>
+              <option value="81" >Society medicine</option>
+              <option value="82" >Clinical internal medicine</option>
+              <option value="83" >Clinical surgery</option>
+              <option value="84" >Dentistry</option>
+              <option value="85" >Nursing</option>
+              <option value="86" >Advanced and Integrated Studies in Human Survivability</option>
+              </select>
+      </td>
+    </tr>
+    
+    <tr>
+      <td align="center" class="th_normal"><span class="">Instructor<br />Name</span></td>
+      <td class="odd_normal"><input id="teacher_name" name="condition.teacherNameEn" type="text" size="25" value=""></td>
+    </tr>
+
+    <tr>
+      <td align="center" class="th_normal"><span class="">Keyword</span></td>
+      <td class="odd_normal"><input id="keyword" name="condition.keywordEn" type="text" size="25" value=""></td>
+    </tr>
+
+    <tr><td align="center" colspan="4" class="th_top_normal"></td></tr>
+    <tr>
+    	<td colspan="4" align="center">
+            <br />
+            <a href="#"  onClick="clearCourseSearchForm();return false;"  id="id_a_1370_32" ><img src="/img/button_clear_en.gif" alit="クリア" border="0" id="id_img_1370_5" ></a>
+            &nbsp;&nbsp;
+            <input type="image" src="/img/button_search_en.gif" alt="検索" id="id_input_1370_33" class="syllabus_search_submit_button"  >
+        </td>
+    </tr>
+  </table>
+</form>
+</center>
+
+<!-- /contents -->
+
+        <div class="copyright">
+            <img src="/img/copyright.gif" alt="">
+          </div>
+        </div>
+
+    </div>
+    <div id="footer" />
+
+    </div>
+    <div id="jsp_path">external/open_syllabus/top_en.jsp</div>
+    <script type="text/javascript" src="/js/js.cookie.js"></script>
+<style>
+.loading_modal_background {
+  position: absolute;
+  background-color: #000;
+  opacity: 0.2;
+  display: none;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+}
+
+.loading_modal_body {
+  position: absolute;
+  padding: 2em;
+  background-color: #FFF;
+  border: 1px solid #000;
+  display: none;
+  z-index: 100000;
+}
+
+.loading_modal_body.now-loading {
+  animation: LOADING_MODAL_ANIMATION 5.1s;
+}
+
+.loading_modal_background.now-loading {
+  animation: LOADING_MODAL_BACKGROUND_ANIMATION 5.1s;
+}
+
+@keyframes LOADING_MODAL_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes LOADING_MODAL_BACKGROUND_ANIMATION {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+</style>
+
+<div class="loading_modal_background"></div>
+<div class="loading_modal_body">
+<div class="loading_modal_body_inline" style="display: inline-block"></div>
+<script type="text/javascript">
+  jQuery(function() {
+    var adjustModalPosition = function() {
+      var width = jQuery("body").width();
+      var height = jQuery("body").height();
+      var modal_width = jQuery(".loading_modal_body_inline").width();
+      var modal_height = jQuery(".loading_modal_body_inline").height();
+      var scroll = window.pageYOffset;
+      jQuery(".loading_modal_body").css("top", scroll + window.innerHeight / 2 - modal_height / 2)
+                           .css("left", width / 2 - modal_width / 2);
+    };
+    var openConfirmWindow = function() {
+      var height = document.documentElement.clientHeight < document.body.clientHeight ? document.body.clientHeight : document.documentElement.clientHeight;
+      var width = document.body.offsetWidth;
+      
+        jQuery(".loading_modal_body_inline").html(
+          '<center>' +
+          '  <div style="font-size: 120%; white-space: nowrap">しばらくお待ちください</div>' +
+          '  <br />' +
+          '  <div style="white-space: nowrap">現在アクセスが集中しており、順番に処理をしています。</div>' +
+          '  <div style="color: red">' +
+          '    <div style="text-decoration: underline">' +
+          '      <div style="white-space: nowrap">ブラウザで「戻る」や「更新」のボタンを押したりせず、</div>' +
+          '      <div style="white-space: nowrap">処理が完了するまでこのままお待ちください。</div>' +
+          '    </div>' +
+          '    <div style="white-space: nowrap">（履修登録期間中は処理に10分程度かかることがあります）</div>' +
+          '  </div>' +
+          '</center>'
+        );
+      
+      jQuery(".loading_modal_background").height(height).width(width).addClass("now-loading").show();
+      jQuery(".loading_modal_body").addClass("now-loading").show();
+      adjustModalPosition();
+    };
+
+    var absolutePath = function(path) {
+      var e = document.createElement('span');
+      e.innerHTML = '<a href="' + path + '" />';
+      return e.firstChild.href;
+    }
+
+    var regTimeslotPage = /\/student\/la\/timeslot\//;
+    jQuery("a").bind("click", function(e) {
+      if (!e.customClickTarget) e.customClickTarget = e.currentTarget;
+    });
+
+    jQuery("body").bind("click", function(e) {
+      if (e.customClickTarget && !e.defaultPrevented) {
+        var $a = jQuery(e.customClickTarget);
+        var path = absolutePath($a.attr("href"));
+        if (!$a.attr("target") && path.match(regTimeslotPage) && !$a.is(".no-loading-modal")) {
+          openConfirmWindow();
+        }
+      }
+    });
+    jQuery("body").bind("submit", function(e) {
+      if (!e.defaultPrevented) {
+        var $f = jQuery(e.target);
+        var path = absolutePath($f.attr("action"));
+        if (path.match(regTimeslotPage) && !$f.is(".no-loading-modal")) {
+          openConfirmWindow();
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>

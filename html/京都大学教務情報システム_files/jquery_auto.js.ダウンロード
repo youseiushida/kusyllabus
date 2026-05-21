@@ -1,0 +1,44 @@
+// jQuery_Auto 0.9
+// Automatic functions for webpages (using the wonderful jQuery library)
+// Copyright: (c) 2006, Michal Tatarynowicz (tatarynowicz@gmail.com)
+// Licenced as Public Domain (http://creativecommons.org/licenses/publicdomain/)
+// $Id: jquery_auto.js 426 2006-05-06 19:54:39Z Michał $
+
+// Initialization
+jQuery.auto = {
+	init: function() {
+		for (module in jQuery.auto) {
+			if (jQuery.auto[module].init)
+				jQuery.auto[module].init();
+		}
+	}
+};
+
+jQuery(document).ready(jQuery.auto.init);
+
+// Mouse hover
+jQuery.auto.hover = {
+
+	init: function() {
+		jQuery('IMG.Hover')
+			.bind('mouseover', this.enter)
+			.bind('mouseout', this.exit)
+			.bind('click', this.exit)
+			.each(this.preload);
+	},
+
+	preload: function() {
+		this.preloaded = new Image;
+		this.preloaded.src = this.src.replace(/^(.+)(\.[a-z]+)$/, "$1_over$2");
+	},
+
+	enter: function() {
+		this.src = this.src.replace(/^(.+)(\.[a-z]+)$/, "$1_over$2");
+	},
+
+	exit: function() {
+		this.src = this.src.replace(/^(.+)_over(\.[a-z]+)$/, "$1$2");
+	}
+};
+
+

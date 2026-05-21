@@ -1,0 +1,291 @@
+.list_0 {
+	height:5px;
+	clear:both;
+}
+.print_b{
+	display:none;
+}
+.print_i{
+	display:none;
+}
+/* ---+++++++++ font-size +++++++++++--- */
+.f1 {
+	font-size: 1px
+}
+.f9 {
+	font-size: 9px
+}
+.f10 {
+	font-size: 10px
+}
+.f11 {
+	font-size: 11px
+}
+.f12 {
+	font-size: 12px
+}
+.f14 {
+	font-size: 15px
+}
+.f18 {
+	font-size: 18px
+}
+.x70 {
+	font-size: 70%
+}
+.x80 {
+	font-size: 80%
+}
+.x90 {
+	font-size: 95%
+}
+.x100 {
+	font-size: 100%
+}
+.x120 {
+	font-size: 120%
+}
+.x140 {
+	font-size: 140%
+}
+.x160 {
+	font-size: 160%
+}
+
+
+/* ---+++++++++ line-height +++++++++++--- */
+.h50 {
+	line-height: 50%
+}
+.h100 {
+	line-height: 100%
+}
+.h110 {
+	line-height: 110%
+}
+.h120 {
+	line-height: 120%
+}
+.h130 {
+	line-height: 130%
+}
+.h140 {
+	line-height: 140%
+}
+.h150 {
+	line-height: 150%
+}
+.h160 {
+	line-height: 160%
+}
+
+
+/* ---+++++++++ margin +++++++++++--- */
+.ml5 {
+	margin-left: 5px
+}
+.ml10 {
+	margin-left: 10px
+}
+.ml15 {
+	margin-left: 15px
+}
+.ml25 {
+	margin-left: 25px
+}
+.mr5 {
+	margin-right: 5px
+}
+.mr10 {
+	margin-right: 10px
+}
+.mr15 {
+	margin-right: 15px
+}
+.mr20 {
+	margin-right: 20px
+}
+.ml35 {
+	margin-left: 35px
+}
+.mr35 {
+	margin-right: 35px
+}
+.ml55 {
+	margin-left: 55px
+}
+.mr55 {
+	margin-right: 55px
+}
+.ml75 {
+	margin-left: 75px
+}
+.mr75 {
+	margin-right: 75px
+}
+
+
+/* ---+++++++++ text-align +++++++++++--- */
+.tr{
+	text-align:right;
+}
+.tl{
+	text-align:left;
+}
+.tc{
+	text-align:center;
+}
+.vt{
+	vertical-align:top;
+}
+.vb{
+	vertical-align:bottom;
+}
+.vm{
+	vertical-align:middle;
+}
+
+
+/* ---+++++++++ float +++++++++++--- */
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.fn{
+	clear:both;
+}
+
+
+/* ---+++++++++ font-weight +++++++++++--- */
+
+.no_bold{
+	font-weight:400;
+}
+.bold{
+	font-weight:bold;
+}
+
+
+/* ---+++++++++ font-color +++++++++++--- */
+.fc_o{
+	color:#eb6100;
+}
+.fc_b{
+	color:#0068B7;
+}
+.fc_g{
+	color:#45780a;
+}
+.fc_gray{
+	color:#959595;
+}
+.fc_r{
+	color:#ff0000;
+}
+
+
+/* ---+++++++++ tab +++++++++++--- */
+.textarea_box_780x80{
+	font-size:100%;
+	width:780px;
+	height:80px;
+}
+.textarea_box_380x80{
+	font-size:100%;
+	width:380px;
+	height:80px;
+}
+.textarea_box_x90x50{
+	font-size:100%;
+	width:90%;
+	height:50px;
+}
+.text_box_550{
+	font-size:100%;
+	width:550px;
+}
+.text_box_375{
+	font-size:100%;
+	width:375px;
+}
+.text_box_300{
+	font-size:100%;
+	width:300px;
+}
+.text_box_275{
+	font-size:100%;
+	width:275px;
+}
+.text_box_250{
+	font-size:100%;
+	width:250px;
+}
+.text_box_x70{
+	font-size:100%;
+	width:70%;
+}
+.text_box_120{
+	font-size:100%;
+	width:120px;
+}
+.text_box_70{
+	font-size:100%;
+	width:70px;
+}
+.text_box_40{
+	font-size:100%;
+	width:40px;
+}
+.check_box_a{
+	margin:5px 5px 0px 5px;
+}
+
+table.buttonList {border-collapse:collapse;}
+table.buttonList td { padding: 0px;}
+
+.buttonList td{
+	font-size:1px;
+}
+.buttonList td form{
+	height:22px;
+}
+.buttonList td a img{
+	_height:22px;
+	padding:0px;
+}
+
+table.button_list {border-collapse:collapse;}
+table.button_list td { padding: 0px; margin: 0px; }
+
+.button_list td{
+	font-size:1px;
+}
+.button_list td form{
+	height:22px;
+}
+.button_list td a img{
+	_height:22px;
+	padding:0px;
+}
+.login_text_box {
+  font-size: 12px
+  font-family: monospace;
+}
+
+textarea {
+  font-size: 100%;
+  font-family: inherit;
+}
+
+.pager_link {
+  color: blue;
+}
+
+.ime_off {
+	ime-mode: disabled;
+}
+
+
+
