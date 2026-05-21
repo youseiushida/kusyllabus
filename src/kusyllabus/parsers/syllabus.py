@@ -17,7 +17,7 @@ _WS_RE = re.compile(r"\s+")
 # are normalised into the same set of attributes (we keep the original page
 # language in Syllabus.display_lang).
 _JP_LABELS: dict[str, str] = {
-    "科目ナンバリング": "course_number",
+    "科目ナンバリング": "course_numbers",
     "科目名": "title",
     "英 訳": "title_en",
     "使用言語": "language",
@@ -36,11 +36,13 @@ _JP_LABELS: dict[str, str] = {
     "参考書等": "references",
     "授業外学修（予習・復習）等": "study_outside_of_class",
     "主要授業科目": "essential_courses",
+    # /department_syllabus pages spell it differently — same field semantically.
+    "主要授業科目（学部・学科名）": "essential_courses",
     # 関連URL is handled specially via reference-url anchors.
 }
 
 _EN_LABELS: dict[str, str] = {
-    "Course number": "course_number",
+    "Course number": "course_numbers",
     "Course title": "title",
     "Language of instruction": "language",
     "Number of credits": "credits",
@@ -60,6 +62,9 @@ _EN_LABELS: dict[str, str] = {
     "Essential courses": "essential_courses",
 }
 
+# Fields that should be parsed into a ``list[str]`` (one entry per <br/>-separated line).
+_LIST_FIELDS: frozenset[str] = frozenset({"course_numbers"})
+
 
 def parse_syllabus(html: str, *, lecture_no: int, display_lang: str = "ja") -> Syllabus:
     """Parse a syllabus detail page.
@@ -71,7 +76,7 @@ def parse_syllabus(html: str, *, lecture_no: int, display_lang: str = "ja") -> S
     label_map = _EN_LABELS if display_lang == "en" else _JP_LABELS
 
     raw_labels: dict[str, str] = {}
-    field_values: dict[str, str] = {}
+    field_values: dict[str, object] = {}
 
     for label_node in tree.css(".lesson_plan_subheading"):
         label = _clean_label(text_of(label_node))
@@ -86,8 +91,13 @@ def parse_syllabus(html: str, *, lecture_no: int, display_lang: str = "ja") -> S
         attr_name = _resolve_label(label, label_map)
         if attr_name is None:
             continue
-        # First occurrence wins (some labels may appear twice in nested tables).
-        field_values.setdefault(attr_name, value)
+        if attr_name in _LIST_FIELDS:
+            # Split <br/>-separated entries (e.g. multi-code course numbering).
+            lines = [line.strip() for line in value.split("\n") if line.strip()]
+            field_values.setdefault(attr_name, lines)
+        else:
+            # First occurrence wins (some labels may appear twice in nested tables).
+            field_values.setdefault(attr_name, value)
 
     teachers = _extract_teachers(tree, display_lang=display_lang)
     related_urls = [

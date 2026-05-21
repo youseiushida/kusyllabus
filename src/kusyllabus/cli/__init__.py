@@ -37,8 +37,9 @@ app = typer.Typer(
     name="kusyllabus",
     help=(
         "Agent-friendly CLI for the Kyoto University open syllabus. "
-        "Every data command supports --json. Run `kusyllabus agent-context` "
-        "for the machine-readable surface description."
+        "Every data command supports --json (data → stdout, diagnostics → "
+        "stderr; pass --quiet to silence progress lines). Run "
+        "`kusyllabus agent-context` for the machine-readable surface description."
     ),
     no_args_is_help=True,
     rich_markup_mode="rich",
@@ -71,7 +72,10 @@ def _root(
         False,
         "--quiet",
         "-q",
-        help="Suppress non-error diagnostics on stderr.",
+        help=(
+            "Suppress non-error diagnostics on stderr. Pair with --json when "
+            "piping into jq/other tools that should see clean stdout only."
+        ),
     ),
 ) -> None:
     """Configure global options shared across every subcommand."""

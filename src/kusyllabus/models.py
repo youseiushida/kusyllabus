@@ -33,8 +33,13 @@ class Syllabus(_Model):
     display_lang: str = "ja"
     """``ja`` for the Japanese version, ``en`` for the English version of this page."""
 
-    course_number: str | None = None
-    """科目ナンバリング / Course number (e.g. ``U-LAS13 10004 LE60``)."""
+    course_numbers: list[str] = Field(default_factory=list)
+    """科目ナンバリング / Course numbers.
+
+    One syllabus can carry multiple codes (e.g. cross-listed UG/G courses
+    on the ``/department_syllabus`` endpoint render two ``U-ENG29 39074 LJ10`` /
+    ``U-ENG29 39074 LJ55`` rows separated by ``<br/>``).
+    """
 
     title: str = ""
     """科目名 / Course title in the page's display language."""
@@ -104,11 +109,29 @@ class Syllabus(_Model):
     Useful for diagnostics or fields that haven't been mapped to a typed attribute.
     """
 
+    @property
+    def course_number(self) -> str | None:
+        """First entry of :attr:`course_numbers` (backwards-compatible shorthand)."""
+        return self.course_numbers[0] if self.course_numbers else None
+
 
 class SearchResultRow(_Model):
-    """One row from the ``/search`` result table."""
+    """One row from the ``/search`` result table.
+
+    ``department_no`` carries the value harvested from the detail-button link:
+
+    * ``None`` when the detail link points at ``la_syllabus?lectureNo=N``
+      (liberal-arts pool — fetch with ``ku.get_syllabus(lecture_no)``).
+    * an ``int`` when the link points at
+      ``department_syllabus?lectureNo=N&departmentNo=D`` — you **must** pass
+      ``department_no=D`` to ``ku.get_syllabus`` or you'll either 404 or, worse,
+      receive a stale row from a long-recycled ``lectureNo``.
+    """
 
     lecture_no: int
+    department_no: int | None = None
+    """``None`` for ``la_syllabus`` rows, the department code for ``department_syllabus``."""
+
     title: str
     instructors: list[str] = Field(default_factory=list)
     department: str = ""

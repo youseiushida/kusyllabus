@@ -19,13 +19,19 @@ app = typer.Typer(help="Get one syllabus or bulk-download many.")
 
 @app.command("get")
 def get_(
-    lecture_no: Annotated[int, typer.Argument(help="lectureNo (5-digit integer).")],
+    lecture_no: Annotated[int, typer.Argument(help="lectureNo (integer).")],
     department_no: Annotated[
         int | None,
         typer.Option(
             "--department",
             "-d",
-            help="Required for /department_syllabus leaves. Find it via `kusyllabus all tree`.",
+            help=(
+                "Department code for /department_syllabus entries. Omit ONLY for "
+                "the /la_syllabus pool (liberal-arts). `search list` returns "
+                "department_no per row; pass it through here verbatim — lectureNo "
+                "alone is ambiguous because the server reuses IDs across years "
+                "between the two pools."
+            ),
         ),
     ] = None,
     display_lang: Annotated[
@@ -36,7 +42,13 @@ def get_(
         typer.Option("--deliver", help="stdout (default) | file:<path> | webhook:<url>."),
     ] = None,
 ) -> None:
-    """Fetch a single syllabus. Returns ``null`` on 404 (with exit code 4)."""
+    """Fetch a single syllabus. Returns ``null`` on 404 (with exit code 4).
+
+    [bold]lectureNo alone is not unique.[/bold] Pass ``--department`` whenever
+    you got the lectureNo from a `search list` row that carries
+    ``department_no``; otherwise the server may return a recycled, years-old
+    entry from the wrong pool.
+    """
     with KuSyllabusClient() as ku:
         syllabus = ku.get_syllabus(
             lecture_no,
@@ -68,7 +80,7 @@ def get_(
 
     body = [
         f"[bold]{syllabus.title}[/bold]",
-        f"  course #: {syllabus.course_number}",
+        f"  course #: {', '.join(syllabus.course_numbers) or '-'}",
         f"  teachers: {', '.join(t.name for t in syllabus.teachers)}",
         f"  language: {syllabus.language}    credits: {syllabus.credits}    style: {syllabus.class_style}",
         f"  when: {syllabus.year_semester}    where: {syllabus.days_and_periods}",

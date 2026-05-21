@@ -20,7 +20,8 @@ def test_parse_syllabus_japanese(fixture_text: Callable[[str], str]) -> None:
     syl = parse_syllabus(fixture_text("la_63736.html"), lecture_no=63736)
     assert syl.lecture_no == 63736
     assert syl.display_lang == "ja"
-    assert syl.course_number == "U-LAS13 10004 LE60"
+    assert syl.course_numbers == ["U-LAS13 10004 LE60"]
+    assert syl.course_number == "U-LAS13 10004 LE60"  # convenience shorthand
     assert syl.title == "Basic Physical Chemistry (thermodynamics)-E2"
     assert syl.title_en == "Basic Physical Chemistry (thermodynamics)-E2"
     assert syl.language == "英語"
@@ -71,6 +72,22 @@ def test_parse_syllabus_department_endpoint(fixture_text: Callable[[str], str]) 
     assert syl.year_semester == "2026・前期"
     assert syl.teachers[0].department == "文学研究科"
     assert syl.teachers[0].job_title == "准教授"
+    # `主要授業科目（学部・学科名）` should alias to essential_courses
+    # (a `/department_syllabus`-specific label spelling).
+    assert "主要授業科目（学部・学科名）" in syl.raw_labels
+    assert syl.essential_courses is not None
+
+
+def test_parse_syllabus_multiple_course_numbers(fixture_text: Callable[[str], str]) -> None:
+    """Cross-listed courses render multiple `<br/>`-separated course numbers.
+
+    Real-world example: ``department_syllabus?lectureNo=13355&departmentNo=16``
+    lists both ``U-ENG29 39074 LJ10`` and ``U-ENG29 39074 LJ55``.
+    """
+    syl = parse_syllabus(fixture_text("dept_multi_course_number.html"), lecture_no=13355)
+    assert syl.course_numbers == ["U-ENG29 39074 LJ10", "U-ENG29 39074 LJ55"]
+    # Backwards-compatible shorthand still returns the first entry.
+    assert syl.course_number == "U-ENG29 39074 LJ10"
 
 
 def test_parse_search_result_count_and_rows(fixture_text: Callable[[str], str]) -> None:
@@ -80,12 +97,41 @@ def test_parse_search_result_count_and_rows(fixture_text: Callable[[str], str]) 
     assert len(result.rows) == 10
     first = result.rows[0]
     assert first.lecture_no == 61585
+    # /la_syllabus rows have no department_no.
+    assert first.department_no is None
     assert first.title.startswith("The History of Eastern Thought I-E2")
     assert first.department == "全学共通科目"
     assert first.semester == "前期"
     assert first.days_and_periods == ["水1"]
     assert result.has_next_page is True
     assert result.has_prev_page is False
+
+
+def test_parse_search_result_captures_department_no_for_dept_syllabus(
+    fixture_text: Callable[[str], str],
+) -> None:
+    """Regression for the lectureNo-collision bug.
+
+    /search rows mix two link shapes; lectureNo alone is ambiguous because the
+    upstream reuses IDs between the la_syllabus and department_syllabus pools
+    across years. The parser MUST surface department_no per row so callers
+    pass the right path to /la_syllabus vs /department_syllabus.
+    """
+    result = parse_search_result(fixture_text("search_mixed_links.html"), page=1)
+    by_lecture = {row.lecture_no: row for row in result.rows}
+
+    # /la_syllabus rows: department_no is None.
+    open_row = by_lecture.get(64363)
+    assert open_row is not None
+    assert open_row.department_no is None
+
+    # /department_syllabus rows: department_no harvested from the href.
+    dept_row = by_lecture.get(8961)
+    assert dept_row is not None
+    assert dept_row.department_no == 10  # 理学部
+    assert all(
+        row.department_no == 10 for row in result.rows if row.lecture_no in {8961, 9090, 9091, 8962}
+    )
 
 
 def test_parse_search_result_english(fixture_text: Callable[[str], str]) -> None:

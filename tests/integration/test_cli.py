@@ -87,6 +87,9 @@ def test_search_list_json_payload_shape(runner: CliRunner) -> None:
     assert payload["rows_returned"] == 3
     assert payload["truncated"] is True
     assert all("lecture_no" in row for row in payload["rows"])
+    # department_no MUST be present (even as null) so agents know which
+    # endpoint to hit on follow-up `syllabus get` calls.
+    assert all("department_no" in row for row in payload["rows"])
 
 
 def test_search_list_rejects_invalid_enum(runner: CliRunner) -> None:

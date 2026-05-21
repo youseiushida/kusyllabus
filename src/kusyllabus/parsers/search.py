@@ -14,6 +14,7 @@ from kusyllabus.parsers._util import extract_lecture_no, lines_from, text_of
 # EN form: `Search result is total of <b>NN</b>.`
 _TOTAL_JP_RE = re.compile(r"<b>(\d+)</b>件")
 _TOTAL_EN_RE = re.compile(r"total of <b>(\d+)</b>", re.IGNORECASE)
+_DEPARTMENT_NO_RE = re.compile(r"departmentNo=(\d+)")
 
 
 def parse_search_result(html: str, *, page: int) -> SearchResult:
@@ -86,7 +87,12 @@ def _extract_rows(tree: HTMLParser) -> list[SearchResultRow]:
         # Cell 9: academic fields, possibly multi-line.
         academic_fields = lines_from(cells[9])
 
-        # Cell 10: detail link with lectureNo.
+        # Cell 10: detail link. /search rows mix two link shapes:
+        #   la_syllabus?lectureNo=N             → open syllabus, no department_no
+        #   department_syllabus?lectureNo=N&departmentNo=D → faculty syllabus
+        # We MUST capture department_no when present; otherwise an agent will
+        # call /la_syllabus?lectureNo=N and either 404 or — far worse — receive
+        # a stale row with the same lectureNo recycled across years.
         a = cells[10].css_first("a")
         href = (a.attributes.get("href") if a is not None else None) or ""
         lecture_no = extract_lecture_no(href)
@@ -94,10 +100,16 @@ def _extract_rows(tree: HTMLParser) -> list[SearchResultRow]:
             # If this row's detail link is missing, skip — without it the row
             # is unusable for follow-up fetches.
             continue
+        department_no: int | None = None
+        if href.startswith("department_syllabus"):
+            m = _DEPARTMENT_NO_RE.search(href)
+            if m:
+                department_no = int(m.group(1))
 
         rows.append(
             SearchResultRow(
                 lecture_no=lecture_no,
+                department_no=department_no,
                 title=title,
                 instructors=instructors,
                 department=department,

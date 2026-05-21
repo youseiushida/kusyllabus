@@ -289,11 +289,22 @@ def list_(
         return
 
     table = Table(title=f"{total} match(es) — showing {len(rows)}", show_lines=False, box=None)
-    for col in ("lectureNo", "title", "instructors", "dept", "slot", "lang", "semester", "level"):
+    for col in (
+        "lectureNo",
+        "deptNo",
+        "title",
+        "instructors",
+        "dept",
+        "slot",
+        "lang",
+        "semester",
+        "level",
+    ):
         table.add_column(col)
     for r in rows:
         table.add_row(
             str(r.lecture_no),
+            str(r.department_no) if r.department_no is not None else "-",
             r.title,
             "\n".join(r.instructors),
             r.department,
@@ -305,6 +316,12 @@ def list_(
     emit_human(table)
     if truncated:
         info("results truncated by --limit")
+    if any(r.department_no is not None for r in rows):
+        info(
+            "rows with deptNo set are /department_syllabus entries — fetch with "
+            "`kusyllabus syllabus get <lectureNo> --department <deptNo>` "
+            "(omitting --department will resolve the wrong syllabus)."
+        )
 
 
 @app.command("count")
